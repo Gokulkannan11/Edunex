@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNex Student Assignments List 2026</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6324eb",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161121",
+                        "success": "#10B981",
+                        "warning": "#F59E0B",
+                        "danger": "#EF4444",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Navigation Bar (Top) -->
+<nav class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-primary/10 px-6 py-4">
+<div class="max-w-6xl mx-auto flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white">school</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-primary">EduNex</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-primary/5 rounded-full">
+<span class="material-icons">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full border-2 border-primary/20 overflow-hidden">
+<img alt="Student Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqVfBBmHhL_WOexT2pQXJmOvUuUEJVvJo7jMeEXpYI4zRXbO_W51Qm5GHrXdlsvmX4zYGstb8-A2J0YlqYaSpqPl0jIrtGGsJK5EGQrUxvg58NREDeAT_hRnxqh3IaWQGTlOqZaSJlKG0ZvM7AVnJJMnHidzdEXu8VO_5q_oyFAB0c9KQPek3fkxstwuLJNnR5pyiute1Fs9bQ1FbdQ0VJbpUftZjQlk085QQCTo1kff3XHb5DKcawXNCYS9FJ2NnMKj_PfhJJWtWl"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Container -->
+<main class="max-w-6xl mx-auto px-6 py-10">
+<!-- Header Section -->
+<header class="mb-8">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white">My Assignments</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Track and submit your course assignments for the 2026 Academic Year.</p>
+</header>
+<!-- Filters & Search Controls -->
+<div class="flex flex-col gap-6 mb-8">
+<!-- Tabs Bar -->
+<div class="flex items-center gap-1 p-1 bg-slate-200/50 dark:bg-slate-800 rounded-xl w-fit">
+<button class="px-6 py-2 rounded-lg bg-primary text-white font-medium transition-all shadow-sm">All</button>
+<button class="px-6 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-700 font-medium transition-all">Pending</button>
+<button class="px-6 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-700 font-medium transition-all">Submitted</button>
+<button class="px-6 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-700 font-medium transition-all">Graded</button>
+</div>
+<!-- Utility Row -->
+<div class="flex flex-col md:flex-row gap-4">
+<div class="relative flex-grow">
+<span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" placeholder="Search assignments..." type="text"/>
+</div>
+<div class="relative">
+<select class="appearance-none pl-4 pr-10 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-slate-700 dark:text-slate-200 min-w-[200px]">
+<option>Sort by Due Date</option>
+<option>Sort by Priority</option>
+<option>Sort by Subject</option>
+</select>
+<span class="material-icons absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Assignments Stack -->
+<div class="space-y-4">
+<!-- Card 1: Overdue (Red) -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border-l-4 border-danger flex flex-col md:flex-row md:items-center justify-between p-6 transition-transform hover:shadow-md">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<span class="bg-danger/10 text-danger text-xs font-bold px-2 py-1 rounded">OVERDUE</span>
+<span class="bg-primary/10 text-primary text-xs font-bold px-2 py-1 rounded">PROJECT</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Advanced Algorithms Research Paper</h3>
+<p class="text-sm text-slate-500 font-medium">CS302 - Computer Science Foundations</p>
+<div class="flex items-center gap-4 mt-2 text-sm text-slate-600 dark:text-slate-400">
+<div class="flex items-center gap-1">
+<span class="material-icons text-sm">calendar_today</span>
+<span>Due Oct 15, 2026</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-sm">stars</span>
+<span>100 Points</span>
+</div>
+</div>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-3">
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-semibold px-3 py-1 rounded-full mr-4">NOT SUBMITTED</span>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg font-bold shadow-lg shadow-primary/20 transition-all">Submit Now</button>
+</div>
+</div>
+<!-- Card 2: Due Soon (Yellow) -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border-l-4 border-warning flex flex-col md:flex-row md:items-center justify-between p-6 transition-transform hover:shadow-md">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<span class="bg-warning/10 text-warning text-xs font-bold px-2 py-1 rounded">DUE SOON</span>
+<span class="bg-primary/10 text-primary text-xs font-bold px-2 py-1 rounded">HOMEWORK</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Differential Equations Problem Set 4</h3>
+<p class="text-sm text-slate-500 font-medium">MATH204 - Calculus III</p>
+<div class="flex items-center gap-4 mt-2 text-sm text-slate-600 dark:text-slate-400">
+<div class="flex items-center gap-1">
+<span class="material-icons text-sm">calendar_today</span>
+<span>Due Oct 24, 2026</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-sm">stars</span>
+<span>50 Points</span>
+</div>
+</div>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-3">
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-semibold px-3 py-1 rounded-full mr-4">NOT SUBMITTED</span>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg font-bold shadow-lg shadow-primary/20 transition-all">Submit Now</button>
+</div>
+</div>
+<!-- Card 3: Normal (Green) -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border-l-4 border-success flex flex-col md:flex-row md:items-center justify-between p-6 transition-transform hover:shadow-md opacity-90">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<span class="bg-success/10 text-success text-xs font-bold px-2 py-1 rounded">ON TRACK</span>
+<span class="bg-primary/10 text-primary text-xs font-bold px-2 py-1 rounded">HOMEWORK</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">UI/UX Design Case Study</h3>
+<p class="text-sm text-slate-500 font-medium">DSN101 - Intro to Digital Design</p>
+<div class="flex items-center gap-4 mt-2 text-sm text-slate-600 dark:text-slate-400">
+<div class="flex items-center gap-1">
+<span class="material-icons text-sm">calendar_today</span>
+<span>Due Nov 02, 2026</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-sm">stars</span>
+<span>75 Points</span>
+</div>
+</div>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-3">
+<span class="bg-success/10 text-success text-xs font-bold px-3 py-1 rounded-full mr-4">SUBMITTED</span>
+<button class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-6 py-2.5 rounded-lg font-bold transition-all">View Details</button>
+</div>
+</div>
+<!-- Card 4: Normal (Green) -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border-l-4 border-success flex flex-col md:flex-row md:items-center justify-between p-6 transition-transform hover:shadow-md">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<span class="bg-success/10 text-success text-xs font-bold px-2 py-1 rounded">ON TRACK</span>
+<span class="bg-warning/10 text-warning text-xs font-bold px-2 py-1 rounded">EXAM</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Quarterly Physics Assessment</h3>
+<p class="text-sm text-slate-500 font-medium">PHYS102 - Applied Mechanics</p>
+<div class="flex items-center gap-4 mt-2 text-sm text-slate-600 dark:text-slate-400">
+<div class="flex items-center gap-1">
+<span class="material-icons text-sm">calendar_today</span>
+<span>Due Nov 12, 2026</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-sm">stars</span>
+<span>200 Points</span>
+</div>
+</div>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-3">
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-semibold px-3 py-1 rounded-full mr-4">NOT SUBMITTED</span>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg font-bold shadow-lg shadow-primary/20 transition-all">Submit Now</button>
+</div>
+</div>
+</div>
+<!-- Pagination / Footer Metadata -->
+<div class="mt-12 flex items-center justify-between text-slate-400 text-sm">
+<p>Showing 4 of 28 assignments</p>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-white dark:hover:bg-slate-900 transition-colors">
+<span class="material-icons">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-white dark:hover:bg-slate-900 transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-white dark:hover:bg-slate-900 transition-colors">3</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-white dark:hover:bg-slate-900 transition-colors">
+<span class="material-icons">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-20 border-t border-primary/5 py-10 bg-white dark:bg-slate-950">
+<div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary/20 rounded-md flex items-center justify-center">
+<span class="material-icons text-primary text-sm font-bold">school</span>
+</div>
+<span class="font-bold text-slate-400">EduNex LMS v4.2.0</span>
+</div>
+<p class="text-slate-400 text-sm">© 2026 EduNex Learning Systems. All Rights Reserved.</p>
+<div class="flex items-center gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors text-sm" href="#">Support</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-sm" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-sm" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

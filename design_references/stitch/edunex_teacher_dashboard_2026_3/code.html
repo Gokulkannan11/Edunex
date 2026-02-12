@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNex Teacher Dashboard Simplified 2026 Updated</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2463eb",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Lexend', sans-serif; }
+        .sidebar-item-active { background-color: rgba(36, 99, 235, 0.1); color: #2463eb; border-right: 3px solid #2463eb; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-display">
+<div class="flex min-h-screen">
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col fixed h-full z-30">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons-round text-white">school</span>
+</div>
+<span class="text-xl font-bold text-slate-900 dark:text-white">EduNex</span>
+</div>
+<nav class="flex-1 mt-4 px-2 space-y-1">
+<a class="sidebar-item-active flex items-center px-4 py-3 gap-3 rounded-lg transition-colors" href="#">
+<span class="material-icons-round">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-icons-round">auto_stories</span>
+<span class="font-medium">My Courses</span>
+</a>
+<a class="flex items-center px-4 py-3 gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-icons-round">groups</span>
+<span class="font-medium">Students</span>
+</a>
+<a class="flex items-center px-4 py-3 gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-icons-round">assessment</span>
+<span class="font-medium">Gradebook</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2">
+<img alt="Professional headshot of a female professor" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg9uBSJBuUvPgZUBnud45CPV-Q28PQFwYxXjrJ9iJQ3pPIJYjfGiQ2gMN1toE_kW5y9ZwU-MLS9xDClAwoPLzGE4W9kxl8WET6R7GI57LsP0K77qJT3TG4snpxKwSgh8J13K26eg1RThWfYghxBdeVB2bzj4B2moeVKgFYr_2NlWrd_J8uYpWQiGtNnPAUEF2XCGHYP0HrcQH2-phSEFo10pQIAhXkg2pdmD0tIrBCk52wAuyHh6SmE8qA4ZNcrJ_vHEIz8Ii_eHfP"/>
+<div>
+<p class="text-sm font-semibold text-slate-900 dark:text-white leading-tight">Dr. Sarah Miller</p>
+<p class="text-xs text-slate-500">Senior Educator</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 ml-64 p-8">
+<header class="flex justify-between items-start mb-8">
+<div>
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white">Welcome, Dr. Miller</h1>
+<p class="text-slate-500 mt-1">Academic Year 2026-2027 • Manage your courses and student activities</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+<span class="material-icons-round">notifications</span>
+</button>
+<div class="text-right">
+<p class="text-sm font-medium text-slate-900 dark:text-white">Monday, Oct 12, 2026</p>
+<p class="text-xs text-slate-500">10:45 AM GMT+1</p>
+</div>
+</div>
+</header>
+<div class="flex gap-4 mb-8">
+<button class="bg-primary text-white px-5 py-2.5 rounded-xl font-medium flex items-center gap-2 hover:bg-blue-700 transition-all shadow-sm">
+<span class="material-icons-round text-lg">add_task</span>
+                    Create Assignment
+                </button>
+<button class="bg-white dark:bg-slate-800 text-slate-700 dark:text-white px-5 py-2.5 rounded-xl font-medium flex items-center gap-2 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all shadow-sm">
+<span class="material-icons-round text-lg text-primary">how_to_reg</span>
+                    Mark Attendance
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border-l-4 border-primary">
+<p class="text-slate-500 text-sm font-medium">Active Courses</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white leading-none">06</h3>
+<span class="text-xs font-bold text-green-500 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded">+1 from sem 1</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border-l-4 border-primary">
+<p class="text-slate-500 text-sm font-medium">Total Students</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white leading-none">184</h3>
+<span class="text-xs font-bold text-blue-500 bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded">Across all units</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border-l-4 border-amber-500">
+<p class="text-slate-500 text-sm font-medium">Pending Assignments</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white leading-none">42</h3>
+<span class="text-xs font-bold text-amber-500 bg-amber-50 dark:bg-amber-900/20 px-2 py-1 rounded">Needs grading</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border-l-4 border-primary">
+<p class="text-slate-500 text-sm font-medium">Classes This Week</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white leading-none">12</h3>
+<span class="text-xs font-bold text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Next in 2h</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-8">
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Active Courses</h2>
+<a class="text-primary text-sm font-semibold hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="bg-blue-50 dark:bg-blue-900/20 text-primary text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">PHY-201</span>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Advanced Physics</h3>
+</div>
+<div class="flex -space-x-2">
+<img alt="Student avatar placeholder" class="w-7 h-7 rounded-full border-2 border-white dark:border-slate-900 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5XGOEYmsXyCv5Bj1QQHx_mvHw1zGb5u261hKSbkizk6gw5GDSFwIi3Wae9EzVj575c41pc2OQY1wVmTD6jPnsZDOwyfJeF67zYI4zH2raFF1MNP1BfO8HnKwDfKB_suCQQWxfT8u7kPOc0NBqdCytooYJgZbAQNmGDHVpNxrK9P6zNYduha2-0IaqfCk6wQOwkVxv-eaxcqwqr-O9YXnRbLp4YPJg0ribOmORyqQ_BFRA-mnc01n9SFxFhimWJ1a7kbvoJ02vaJgW"/>
+<img alt="Student avatar placeholder" class="w-7 h-7 rounded-full border-2 border-white dark:border-slate-900 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTOv7kGyqL3iKgyn8Yw5GaHTeob5kqadeVHjoLsrDrL4JTMi_QtAtdf-CFKgk8z81rWzuj44HJGlEhPMGtf_9f07831jIhpBoEhvtmnDIr7D36HogY7bGdt6zZhTozpsV69Y6XzsUV1cIyA-bI8Kp7gTMnGN6N_TPDl3CUxjQX_1NZ2kt9hg-h2usrZCoKat_Hiq2L2-O9X2_DeIyCS5g8EGvL61aQPPAy8T4kQoqIn10i9aijD0MmgcNYrELTbpeSoijl1_bVhCG3"/>
+<div class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-[10px] font-bold border-2 border-white dark:border-slate-900">+32</div>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg mb-4">
+<p class="text-xs font-semibold text-slate-400 uppercase mb-2">Recent Activity</p>
+<p class="text-sm text-slate-600 dark:text-slate-300">12 students submitted "Quantum Mechanics Basics"</p>
+</div>
+<div class="flex items-center gap-4 text-xs text-slate-500 mb-6">
+<span class="flex items-center gap-1"><span class="material-icons-round text-sm">schedule</span> 14:00 - 15:30</span>
+<span class="flex items-center gap-1"><span class="material-icons-round text-sm">location_on</span> Room 402</span>
+</div>
+</div>
+<div class="mt-auto border-t border-slate-100 dark:border-slate-800 grid grid-cols-2">
+<button class="py-3 text-sm font-semibold text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors border-r border-slate-100 dark:border-slate-800">View Course</button>
+<button class="py-3 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Attendance</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="bg-purple-50 dark:bg-purple-900/20 text-purple-600 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">MAT-405</span>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Linear Algebra</h3>
+</div>
+<div class="flex -space-x-2">
+<img alt="Student avatar placeholder" class="w-7 h-7 rounded-full border-2 border-white dark:border-slate-900 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnYNdZVnTnYCKHzyUseocyMd3Z7dudG7684xUB50fv3g5Yf-unPNffUf_cC0qfhnMFPzBgeIFuvdGlNJT53uMr6gIjae8COgsyMNhWv_TbspzS8EM91Frm2gR7W_6kXzxLtdgocYqHvSRpx1aVR4ds51CrRBE_-oYnkntMXwPLmZVkpkw0oDRLmCMfmf-Fireh4lpHotesp7SP8pHF35eb7Kh9SwhF5uGCw4236PoGNP3EjDkmiWCJez_x3v2JIsX7oAm5hiIVkMs6"/>
+<img alt="Student avatar placeholder" class="w-7 h-7 rounded-full border-2 border-white dark:border-slate-900 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoipCirBh8Q_kMD_k2J3jSAHtAyIRsXAYSZP6IBZ_74l7xik6FuzDTmROFzDnW8MazASbSA6kSJ3NAqVwIY3Fm9ERKtGcebXBw6b3MJZbrjtThn0AnrGGw06B5AzxI1oGg-abwmcQTo6zrNZOr_-Z_t3ZKmBZMwIAR6r-QNppN-nBf7iXJLMd504ia1QOjToHdahxSwUuhkY0I1ZfjyMgFBcDtXUcpNRCBOfAulQO8HLOKRA07keF6hqiC4Gss8dV2nmMoMJ3trozO"/>
+<div class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-[10px] font-bold border-2 border-white dark:border-slate-900">+28</div>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg mb-4">
+<p class="text-xs font-semibold text-slate-400 uppercase mb-2">Recent Activity</p>
+<p class="text-sm text-slate-600 dark:text-slate-300">New discussion thread: "Matrix Transformations"</p>
+</div>
+<div class="flex items-center gap-4 text-xs text-slate-500 mb-6">
+<span class="flex items-center gap-1"><span class="material-icons-round text-sm">schedule</span> 09:00 - 10:30</span>
+<span class="flex items-center gap-1"><span class="material-icons-round text-sm">location_on</span> Lab 10-A</span>
+</div>
+</div>
+<div class="mt-auto border-t border-slate-100 dark:border-slate-800 grid grid-cols-2">
+<button class="py-3 text-sm font-semibold text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors border-r border-slate-100 dark:border-slate-800">View Course</button>
+<button class="py-3 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Attendance</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">SCI-102</span>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Research Methodology</h3>
+</div>
+<div class="flex -space-x-2">
+<div class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-[10px] font-bold border-2 border-white dark:border-slate-900">+15</div>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg mb-4">
+<p class="text-xs font-semibold text-slate-400 uppercase mb-2">Recent Activity</p>
+<p class="text-sm text-slate-600 dark:text-slate-300">Online session recording is now available.</p>
+</div>
+<div class="flex items-center gap-4 text-xs text-slate-500 mb-6">
+<span class="flex items-center gap-1"><span class="material-icons-round text-sm">schedule</span> 14:30 - 16:00</span>
+<span class="flex items-center gap-1"><span class="material-icons-round text-sm">video_camera_front</span> Online</span>
+</div>
+</div>
+<div class="mt-auto border-t border-slate-100 dark:border-slate-800 grid grid-cols-2">
+<button class="py-3 text-sm font-semibold text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors border-r border-slate-100 dark:border-slate-800">View Course</button>
+<button class="py-3 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Attendance</button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Upcoming Classes (Today)</h2>
+<span class="text-xs text-slate-500">Oct 12, 2026</span>
+</div>
+<div class="p-0">
+<div class="flex items-center p-4 border-b border-slate-50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<div class="w-20 text-sm font-bold text-slate-400">09:00 AM</div>
+<div class="w-3 h-3 rounded-full bg-blue-500 mr-4"></div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-900 dark:text-white">Linear Algebra (MAT-405)</p>
+<p class="text-xs text-slate-500">Lecture Room 101 • 28 Students</p>
+</div>
+<div class="px-3 py-1 rounded bg-green-50 text-green-600 text-[10px] font-bold">COMPLETED</div>
+</div>
+<div class="flex items-center p-4 border-b border-slate-50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<div class="w-20 text-sm font-bold text-slate-400">11:00 AM</div>
+<div class="w-3 h-3 rounded-full bg-amber-500 mr-4"></div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-900 dark:text-white">Advanced Physics (PHY-201)</p>
+<p class="text-xs text-slate-500">Main Lab Hall • 34 Students</p>
+</div>
+<div class="px-3 py-1 rounded bg-amber-50 text-amber-600 text-[10px] font-bold">LIVE SOON</div>
+</div>
+<div class="flex items-center p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<div class="w-20 text-sm font-bold text-slate-400">02:30 PM</div>
+<div class="w-3 h-3 rounded-full bg-slate-300 mr-4"></div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-900 dark:text-white">Research Methodology</p>
+<p class="text-xs text-slate-500">Online Session via EduNex Video</p>
+</div>
+<div class="px-3 py-1 rounded bg-slate-100 text-slate-500 text-[10px] font-bold">SCHEDULED</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="mt-12 py-8 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-slate-400">
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-lg">verified</span>
+<p class="text-xs font-medium uppercase tracking-widest">EduNex LMS © 2026 • v4.2.0-stable</p>
+</div>
+<div class="flex gap-6 text-xs font-medium">
+<a class="hover:text-primary transition-colors" href="#">System Status</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+</footer>
+</main>
+</div>
+
+</body></html>

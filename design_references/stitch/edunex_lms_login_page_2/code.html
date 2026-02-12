@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNex Courses with Filters and Search</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2463eb",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "edu-slate": "#64748b",
+                        "edu-border": "#e2e8f0"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-soft-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+        }
+        .dark .bg-soft-gradient {
+            background: linear-gradient(135deg, #111621 0%, #1a202c 100%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen">
+<div class="fixed inset-0 bg-soft-gradient -z-10"></div>
+<header class="bg-white dark:bg-gray-900 border-b border-edu-border dark:border-gray-800 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center shadow-md shadow-primary/20">
+<span class="material-icons text-white text-lg">school</span>
+</div>
+<h1 class="text-xl font-bold text-gray-900 dark:text-white tracking-tight">EduNex</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-edu-slate hover:text-primary transition-colors">
+<span class="material-icons">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">
+                    JD
+                </div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 py-8">
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white">My Courses</h2>
+<p class="text-edu-slate dark:text-gray-400 mt-1">Select a course to access your learning materials</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white font-semibold py-2.5 px-5 rounded-lg transition-all flex items-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-icons text-lg">add</span>
+                Enroll in New Course
+            </button>
+</div>
+<div class="mb-8 flex flex-col lg:flex-row items-center justify-between gap-6 bg-white dark:bg-gray-900 p-4 rounded-xl border border-edu-border dark:border-gray-800 shadow-sm">
+<div class="flex items-center p-1 bg-gray-100 dark:bg-gray-800 rounded-lg w-full lg:w-auto">
+<button class="flex-1 lg:flex-none px-6 py-2 text-sm font-semibold rounded-md bg-white dark:bg-gray-700 text-primary shadow-sm">All</button>
+<button class="flex-1 lg:flex-none px-6 py-2 text-sm font-medium text-edu-slate hover:text-primary transition-colors">In Progress</button>
+<button class="flex-1 lg:flex-none px-6 py-2 text-sm font-medium text-edu-slate hover:text-primary transition-colors">Completed</button>
+</div>
+<div class="relative w-full lg:w-96">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-edu-slate">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-gray-800 border-edu-border dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm outline-none dark:text-white" placeholder="Search your course..." type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-gray-900 rounded-xl border border-edu-border dark:border-gray-800 p-6 flex flex-col justify-between hover:shadow-lg transition-all group">
+<div>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded mb-4 inline-block uppercase tracking-wider">CS-101</span>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Introduction to Computer Science</h3>
+<p class="text-sm text-edu-slate dark:text-gray-400 flex items-center gap-2">
+<span class="material-icons text-sm">person</span>
+                        Dr. Sarah Mitchell
+                    </p>
+</div>
+<button class="mt-8 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-all active:scale-[0.98]">
+                    Enter Course
+                </button>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl border border-edu-border dark:border-gray-800 p-6 flex flex-col justify-between hover:shadow-lg transition-all group">
+<div>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded mb-4 inline-block uppercase tracking-wider">MAT-204</span>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Advanced Calculus</h3>
+<p class="text-sm text-edu-slate dark:text-gray-400 flex items-center gap-2">
+<span class="material-icons text-sm">person</span>
+                        Prof. Robert Chen
+                    </p>
+</div>
+<button class="mt-8 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-all active:scale-[0.98]">
+                    Enter Course
+                </button>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl border border-edu-border dark:border-gray-800 p-6 flex flex-col justify-between hover:shadow-lg transition-all group">
+<div>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded mb-4 inline-block uppercase tracking-wider">ENG-112</span>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Contemporary Literature</h3>
+<p class="text-sm text-edu-slate dark:text-gray-400 flex items-center gap-2">
+<span class="material-icons text-sm">person</span>
+                        Dr. Emily Watson
+                    </p>
+</div>
+<button class="mt-8 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-all active:scale-[0.98]">
+                    Enter Course
+                </button>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl border border-edu-border dark:border-gray-800 p-6 flex flex-col justify-between hover:shadow-lg transition-all group">
+<div>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded mb-4 inline-block uppercase tracking-wider">PHY-301</span>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Quantum Mechanics I</h3>
+<p class="text-sm text-edu-slate dark:text-gray-400 flex items-center gap-2">
+<span class="material-icons text-sm">person</span>
+                        Prof. Alistair Vance
+                    </p>
+</div>
+<button class="mt-8 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-all active:scale-[0.98]">
+                    Enter Course
+                </button>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl border border-edu-border dark:border-gray-800 p-6 flex flex-col justify-between hover:shadow-lg transition-all group">
+<div>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded mb-4 inline-block uppercase tracking-wider">PSY-102</span>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Cognitive Psychology</h3>
+<p class="text-sm text-edu-slate dark:text-gray-400 flex items-center gap-2">
+<span class="material-icons text-sm">person</span>
+                        Dr. Linda Thompson
+                    </p>
+</div>
+<button class="mt-8 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-all active:scale-[0.98]">
+                    Enter Course
+                </button>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl border border-edu-border dark:border-gray-800 p-6 flex flex-col justify-between hover:shadow-lg transition-all group">
+<div>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded mb-4 inline-block uppercase tracking-wider">ART-205</span>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Digital Design Fundamentals</h3>
+<p class="text-sm text-edu-slate dark:text-gray-400 flex items-center gap-2">
+<span class="material-icons text-sm">person</span>
+                        Marcus Aurelius
+                    </p>
+</div>
+<button class="mt-8 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-all active:scale-[0.98]">
+                    Enter Course
+                </button>
+</div>
+</div>
+</main>
+<footer class="border-t border-edu-border dark:border-gray-800 mt-20 py-8">
+<div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-icons text-primary text-xl">school</span>
+<span class="text-gray-900 dark:text-white font-bold">EduNex</span>
+</div>
+<p class="text-sm text-edu-slate dark:text-gray-500 font-medium">
+                EduNex Learning Management System. All rights reserved.
+            </p>
+<div class="flex gap-6">
+<a class="text-xs font-bold text-edu-slate hover:text-primary uppercase tracking-wider" href="#">Privacy Policy</a>
+<a class="text-xs font-bold text-edu-slate hover:text-primary uppercase tracking-wider" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-20 pointer-events-none opacity-20 dark:opacity-10">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary rounded-full blur-[100px]"></div>
+<div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-200 dark:bg-primary/20 rounded-full blur-[120px]"></div>
+</div>
+
+</body></html>

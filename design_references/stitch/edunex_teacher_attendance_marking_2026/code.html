@@ -1,0 +1,216 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNex Teacher Attendance with Search 2026</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6324eb",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#161121",
+                        "status-present": "#10b981",
+                        "status-absent": "#ef4444",
+                        "status-excused": "#f59e0b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<header class="mb-8">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div>
+<h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Mark Attendance</h1>
+<p class="mt-1 text-slate-500 dark:text-slate-400">Record student attendance for your classes</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center gap-6">
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Present</span>
+<span class="text-xl font-bold text-slate-900 dark:text-white">42/45</span>
+</div>
+<div class="h-10 w-px bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex flex-col min-w-[120px]">
+<div class="flex justify-between items-center mb-1">
+<span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Rate</span>
+<span class="text-xs font-bold text-primary">93%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 93%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 mb-6">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+<div class="flex flex-wrap items-center gap-4 flex-1">
+<div class="relative min-w-[240px]">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">Select Course</label>
+<select class="w-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary">
+<option>CS302 - Database Management Systems</option>
+<option>CS401 - Artificial Intelligence</option>
+<option>MA205 - Discrete Mathematics</option>
+<option>HU101 - Professional Communication</option>
+</select>
+</div>
+<div class="relative min-w-[180px]">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">Date</label>
+<input class="w-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary" type="date" value="2026-03-24"/>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-4 lg:ml-auto">
+<div class="relative w-full sm:w-64">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">Quick Search</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary placeholder:text-slate-400" placeholder="Search student name or ID..." type="text"/>
+</div>
+</div>
+<div class="flex items-center self-end">
+<button class="flex items-center gap-2 px-4 py-2.5 bg-primary/10 text-primary hover:bg-primary/20 transition-colors rounded-lg font-semibold text-sm whitespace-nowrap">
+<span class="material-icons text-sm">done_all</span>
+                            Mark All Present
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider w-32">Student ID</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Name</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Department</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider text-right">Attendance Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-900/40 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#EDN-26001</td>
+<td class="px-6 py-4">
+<span class="text-sm font-bold text-slate-900 dark:text-white">Alex Johnson</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Computer Science</td>
+<td class="px-6 py-4">
+<div class="flex justify-end">
+<div class="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-1 bg-slate-50 dark:bg-slate-900">
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all bg-status-present text-white shadow-sm">Present</button>
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-slate-700 dark:text-slate-400">Absent</button>
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-slate-700 dark:text-slate-400">Excused</button>
+</div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-900/40 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#EDN-26014</td>
+<td class="px-6 py-4">
+<span class="text-sm font-bold text-slate-900 dark:text-white">Beatrice Miller</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Information Technology</td>
+<td class="px-6 py-4">
+<div class="flex justify-end">
+<div class="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-1 bg-slate-50 dark:bg-slate-900">
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-slate-700 dark:text-slate-400">Present</button>
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-slate-700 dark:text-slate-400">Absent</button>
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all bg-status-excused text-white shadow-sm">Excused</button>
+</div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-900/40 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#EDN-26082</td>
+<td class="px-6 py-4">
+<span class="text-sm font-bold text-slate-900 dark:text-white">Christopher Nolan</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Computer Science</td>
+<td class="px-6 py-4">
+<div class="flex justify-end">
+<div class="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-1 bg-slate-50 dark:bg-slate-900">
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all bg-status-present text-white shadow-sm">Present</button>
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-slate-700 dark:text-slate-400">Absent</button>
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-slate-700 dark:text-slate-400">Excused</button>
+</div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-900/40 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#EDN-26105</td>
+<td class="px-6 py-4">
+<span class="text-sm font-bold text-slate-900 dark:text-white">Diana Prince</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Software Engineering</td>
+<td class="px-6 py-4">
+<div class="flex justify-end">
+<div class="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-1 bg-slate-50 dark:bg-slate-900">
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-slate-700 dark:text-slate-400">Present</button>
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all bg-status-absent text-white shadow-sm">Absent</button>
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-slate-700 dark:text-slate-400">Excused</button>
+</div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-900/40 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#EDN-26233</td>
+<td class="px-6 py-4">
+<span class="text-sm font-bold text-slate-900 dark:text-white">Ethan Hunt</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Computer Science</td>
+<td class="px-6 py-4">
+<div class="flex justify-end">
+<div class="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-1 bg-slate-50 dark:bg-slate-900">
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all bg-status-present text-white shadow-sm">Present</button>
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-slate-700 dark:text-slate-400">Absent</button>
+<button class="px-3 py-1.5 rounded-md text-xs font-bold transition-all text-slate-500 hover:text-slate-700 dark:text-slate-400">Excused</button>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-slate-50 dark:bg-slate-900/50 px-6 py-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
+<p class="text-sm text-slate-500 dark:text-slate-400">Showing 5 of 45 students</p>
+<div class="flex gap-2">
+<button class="p-2 border border-slate-200 dark:border-slate-700 rounded bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50" disabled="">
+<span class="material-icons text-sm">chevron_left</span>
+</button>
+<button class="p-2 border border-slate-200 dark:border-slate-700 rounded bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700">
+<span class="material-icons text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-primary">info</span>
+<span>Attendance will be logged for 24th March, 2026</span>
+</div>
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-6 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-semibold text-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                    Clear All
+                </button>
+<button class="flex-1 sm:flex-none px-8 py-2.5 rounded-lg bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-shadow shadow-md shadow-primary/20 active:translate-y-0.5">
+                    Save Attendance
+                </button>
+</div>
+</div>
+</div>
+
+</body></html>

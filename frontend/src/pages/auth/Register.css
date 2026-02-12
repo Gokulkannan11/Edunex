@@ -1,0 +1,282 @@
+/* Register Page - Exact Stitch Design */
+
+.register-page-exact {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.register-container-exact {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 520px;
+    padding: 48px 40px;
+}
+
+/* Logo Section */
+.register-logo-section {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.logo-icon-exact {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #EDE9FE 0%, #DDD6FE 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin: 0 auto 16px;
+}
+
+.logo-title-exact {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0F172A;
+    margin: 0 0 4px 0;
+}
+
+.logo-subtitle-exact {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    color: #94A3B8;
+    margin: 0;
+}
+
+/* Form Section */
+.register-form-section {
+    margin-top: 32px;
+}
+
+.form-title-exact {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0F172A;
+    margin: 0 0 8px 0;
+    text-align: center;
+}
+
+.form-subtitle-exact {
+    font-size: 14px;
+    color: #64748B;
+    margin: 0 0 28px 0;
+    text-align: center;
+}
+
+/* Error Alert */
+.error-alert-exact {
+    background: #FEE2E2;
+    border: 1px solid #FCA5A5;
+    color: #DC2626;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form */
+.register-form-exact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Name Row */
+.name-row-exact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Form Field */
+.form-field-exact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field-exact label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1E293B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password-hint {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #94A3B8;
+}
+
+.form-field-exact input[type="text"],
+.form-field-exact input[type="email"],
+.form-field-exact input[type="password"] {
+    padding: 12px 16px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1E293B;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+    background: white;
+}
+
+.form-field-exact input::placeholder {
+    color: #CBD5E1;
+}
+
+.form-field-exact input:focus {
+    outline: none;
+    border-color: #7C3AED;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.form-field-exact input:valid {
+    border-color: #10B981;
+}
+
+/* Role Buttons */
+.role-buttons-exact {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.role-btn-exact {
+    padding: 12px 16px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 8px;
+    background: white;
+    color: #64748B;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.role-btn-exact:hover {
+    border-color: #CBD5E1;
+    background: #F8FAFC;
+}
+
+.role-btn-exact.active {
+    background: #7C3AED;
+    border-color: #7C3AED;
+    color: white;
+}
+
+/* Terms Checkbox */
+.terms-checkbox-exact {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.terms-checkbox-exact input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: #7C3AED;
+}
+
+.terms-checkbox-exact label {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.terms-checkbox-exact a {
+    color: #7C3AED;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.terms-checkbox-exact a:hover {
+    text-decoration: underline;
+}
+
+/* Submit Button */
+.submit-btn-exact {
+    padding: 14px 24px;
+    background: #7C3AED;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+}
+
+.submit-btn-exact:hover:not(:disabled) {
+    background: #6D28D9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.submit-btn-exact:disabled {
+    background: #CBD5E1;
+    cursor: not-allowed;
+}
+
+/* Footer */
+.register-footer-exact {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: #64748B;
+}
+
+.register-footer-exact a {
+    color: #7C3AED;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-footer-exact a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .register-container-exact {
+        padding: 32px 24px;
+    }
+
+    .name-row-exact {
+        grid-template-columns: 1fr;
+    }
+
+    .role-buttons-exact {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-title-exact {
+        font-size: 24px;
+    }
+
+    .form-title-exact {
+        font-size: 22px;
+    }
+}

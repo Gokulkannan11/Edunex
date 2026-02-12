@@ -1,0 +1,396 @@
+/* Admin User Management - Stitch Design */
+
+.user-management-page {
+    padding: 48px 64px;
+    max-width: 1600px;
+    margin: 0 auto;
+    background: #F8FAFC;
+    min-height: 100vh;
+}
+
+.btn-add-user {
+    padding: 12px 24px;
+    background: #2563EB;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-add-user:hover {
+    background: #1D4ED8;
+    transform: translateY(-1px);
+}
+
+.controls-row-stitch {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.search-box-admin {
+    flex: 1;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+}
+
+.search-box-admin input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.filter-buttons-admin {
+    display: flex;
+    gap: 8px;
+}
+
+.filter-buttons-admin button {
+    padding: 10px 20px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6B7280;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-buttons-admin button:hover {
+    border-color: #7C3AED;
+    color: #7C3AED;
+}
+
+.filter-buttons-admin button.active {
+    background: #7C3AED;
+    border-color: #7C3AED;
+    color: white;
+}
+
+.users-table-stitch {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table-header-admin {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr 1.5fr;
+    gap: 16px;
+    padding: 16px 24px;
+    background: #F9FAFB;
+    border-bottom: 1px solid #F3F4F6;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #9CA3AF;
+    text-transform: uppercase;
+}
+
+.table-row-admin {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr 1.5fr;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid #F3F4F6;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.table-row-admin:last-child {
+    border-bottom: none;
+}
+
+.table-row-admin:hover {
+    background: #FAFAFA;
+}
+
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.user-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.email-cell {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #6B7280;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.role-badge.student {
+    background: #DBEAFE;
+    color: #1E40AF;
+}
+
+.role-badge.teacher {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.role-badge.admin {
+    background: #FEE2E2;
+    color: #991B1B;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-badge.active {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.status-badge.inactive {
+    background: #F3F4F6;
+    color: #6B7280;
+}
+
+.date-cell {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #6B7280;
+}
+
+.actions-cell {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action {
+    padding: 6px 12px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-action:hover {
+    border-color: #7C3AED;
+    color: #7C3AED;
+}
+
+.btn-action.danger:hover {
+    border-color: #EF4444;
+    color: #EF4444;
+}
+
+@media (max-width: 768px) {
+    .user-management-page {
+        padding: 24px;
+    }
+
+    .controls-row-stitch {
+        flex-direction: column;
+    }
+
+    .table-header-admin,
+    .table-row-admin {
+        grid-template-columns: 1fr;
+    }
+}
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.modal-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #9CA3AF;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+}
+
+.modal-close:hover {
+    color: #374151;
+}
+
+.alert-error {
+    background: #FEE2E2;
+    border: 1px solid #FCA5A5;
+    color: #DC2626;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #1A1A1A;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #7C3AED;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.btn-cancel {
+    padding: 12px 24px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+    border-color: #9CA3AF;
+}
+
+.btn-submit {
+    padding: 12px 24px;
+    background: #7C3AED;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-submit:hover:not(:disabled) {
+    background: #6D28D9;
+}
+
+.btn-submit:disabled {
+    background: #CBD5E1;
+    cursor: not-allowed;
+}

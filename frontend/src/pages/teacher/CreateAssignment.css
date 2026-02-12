@@ -1,0 +1,230 @@
+/* Teacher Create Assignment - Stitch Design */
+
+.create-assignment-page {
+    padding: 48px 64px;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #F8FAFC;
+    min-height: 100vh;
+}
+
+.breadcrumb-stitch {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #9CA3AF;
+    margin-bottom: 16px;
+}
+
+.breadcrumb-stitch a {
+    color: #7C3AED;
+    text-decoration: none;
+}
+
+.assignment-form-stitch {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-section-stitch {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 28px;
+}
+
+.section-title-form {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-group-stitch {
+    margin-bottom: 20px;
+}
+
+.form-group-stitch:last-child {
+    margin-bottom: 0;
+}
+
+.form-group-stitch label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.form-group-stitch input[type="text"],
+.form-group-stitch input[type="number"],
+.form-group-stitch input[type="datetime-local"],
+.form-group-stitch select,
+.form-group-stitch textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #374151;
+    transition: border-color 0.2s ease;
+}
+
+.form-group-stitch input:focus,
+.form-group-stitch select:focus,
+.form-group-stitch textarea:focus {
+    outline: none;
+    border-color: #7C3AED;
+}
+
+.form-group-stitch textarea {
+    resize: vertical;
+}
+
+.form-row-stitch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-weight: 500 !important;
+}
+
+.toggle-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.helper-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #9CA3AF;
+    margin: 8px 0 0 32px;
+}
+
+.upload-area-stitch {
+    border: 2px dashed #E5E7EB;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    background: #FAFAFA;
+}
+
+.upload-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.upload-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+    margin: 0 0 4px 0;
+}
+
+.upload-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #9CA3AF;
+    margin: 0 0 16px 0;
+}
+
+.btn-browse {
+    padding: 10px 24px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-browse:hover {
+    border-color: #7C3AED;
+    color: #7C3AED;
+}
+
+.form-actions-stitch {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 24px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+}
+
+.btn-cancel,
+.btn-draft,
+.btn-create {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel {
+    background: white;
+    border: 1px solid #E5E7EB;
+    color: #6B7280;
+}
+
+.btn-cancel:hover {
+    border-color: #9CA3AF;
+}
+
+.btn-draft {
+    background: white;
+    border: 1px solid #E5E7EB;
+    color: #374151;
+}
+
+.btn-draft:hover {
+    border-color: #7C3AED;
+    color: #7C3AED;
+}
+
+.btn-create {
+    background: #2563EB;
+    border: none;
+    color: white;
+}
+
+.btn-create:hover {
+    background: #1D4ED8;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .create-assignment-page {
+        padding: 24px;
+    }
+
+    .form-row-stitch {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions-stitch {
+        flex-direction: column;
+    }
+}

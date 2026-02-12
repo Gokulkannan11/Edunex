@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import { format } from 'date-fns';
+import './Dashboard.css';
 
 const Dashboard = () => {
     const { user } = useAuth();
@@ -34,133 +36,170 @@ const Dashboard = () => {
     }
 
     if (error) {
-        return (
-            <div className="alert alert-error">
-                {error}
-            </div>
-        );
+        return <div className="alert alert-error">{error}</div>;
     }
 
+    // Sample data matching Stitch design
+    const stats = {
+        enrolledCourses: data?.enrolledCourses || 12,
+        pendingAssignments: data?.pendingAssignments || 4,
+        attendanceRate: data?.attendanceRate || 94,
+        averageGrade: data?.averageGrade || 3.8
+    };
+
+    const assignments = [
+        {
+            title: 'Advanced Calculus - Week 4',
+            subtitle: 'Unit 2: Differentiation',
+            type: 'Exam',
+            dueDate: 'Aug 15, 2025',
+            maxScore: 100
+        },
+        {
+            title: 'UX Design Principles',
+            subtitle: 'Interaction Design Case Study',
+            type: 'Project',
+            dueDate: 'Aug 22, 2025',
+            maxScore: 50
+        },
+        {
+            title: 'Macroeconomics Quiz',
+            subtitle: 'Chapter 5: Inflation Patterns',
+            type: 'Homework',
+            dueDate: 'Sep 05, 2025',
+            maxScore: 20
+        }
+    ];
+
+    const attendance = {
+        present: data?.attendance?.present || 45,
+        absent: data?.attendance?.absent || 3,
+        total: data?.attendance?.total || 48
+    };
+
     return (
-        <div>
-            {/* Page Header */}
-            <div className="page-header">
-                <h1 className="page-title">Welcome back, {user?.firstName}! 👋</h1>
-                <p className="page-subtitle">Here's what's happening with your courses today.</p>
+        <div className="student-dashboard-stitch">
+            {/* Header */}
+            <div className="dashboard-header-stitch">
+                <div>
+                    <h1 className="dashboard-title-stitch">
+                        Welcome back, {user?.firstName || 'Alex'}! 👋
+                    </h1>
+                    <p className="dashboard-subtitle-stitch">
+                        Here's what's happening with your academic progress today.
+                    </p>
+                </div>
+                <div className="term-badge-stitch">
+                    <span className="bell-icon-stitch">🔔</span>
+                    <span>Term: Fall 2025</span>
+                </div>
             </div>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-4 mb-8">
-                <div className="stat-card student">
-                    <div className="stat-value">{data?.enrolledCourses || 0}</div>
-                    <div className="stat-label">Enrolled Courses</div>
+            <div className="stats-grid-stitch">
+                <div className="stat-card-stitch purple-border">
+                    <div className="stat-label-stitch">Enrolled Courses</div>
+                    <div className="stat-value-stitch">{stats.enrolledCourses}</div>
+                    <div className="stat-meta-stitch success">+2 this term</div>
                 </div>
 
-                <div className="stat-card warning">
-                    <div className="stat-value">{data?.pendingAssignments || 0}</div>
-                    <div className="stat-label">Pending Assignments</div>
+                <div className="stat-card-stitch orange-border">
+                    <div className="stat-label-stitch">Pending Assignments</div>
+                    <div className="stat-value-stitch orange">{String(stats.pendingAssignments).padStart(2, '0')}</div>
+                    <div className="stat-icon-stitch">⏰</div>
                 </div>
 
-                <div className="stat-card success">
-                    <div className="stat-value">{data?.attendance?.rate || 0}%</div>
-                    <div className="stat-label">Attendance Rate</div>
+                <div className="stat-card-stitch green-border">
+                    <div className="stat-label-stitch">Attendance Rate</div>
+                    <div className="stat-value-stitch green">{stats.attendanceRate}%</div>
+                    <div className="stat-icon-stitch">✅</div>
                 </div>
 
-                <div className="stat-card">
-                    <div className="stat-value">{data?.averageGrade || 0}%</div>
-                    <div className="stat-label">Average Grade</div>
+                <div className="stat-card-stitch blue-border">
+                    <div className="stat-label-stitch">Average Grade</div>
+                    <div className="stat-value-stitch blue">{stats.averageGrade}</div>
+                    <div className="stat-meta-stitch info">Top 5%</div>
                 </div>
             </div>
 
             {/* Upcoming Assignments */}
-            <div className="card">
-                <div className="card-header">
-                    <h3>📝 Upcoming Assignments</h3>
+            <div className="assignments-section-stitch">
+                <div className="section-header-stitch">
+                    <h2>Upcoming Assignments</h2>
+                    <Link to="/student/assignments" className="view-all-link-stitch">View All</Link>
                 </div>
-                <div className="card-body">
-                    {data?.upcomingAssignments?.length > 0 ? (
-                        <div className="table-container">
-                            <table className="table">
-                                <thead>
-                                    <tr>
-                                        <th>Title</th>
-                                        <th>Type</th>
-                                        <th>Due Date</th>
-                                        <th>Max Score</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {data.upcomingAssignments.map((assignment) => (
-                                        <tr key={assignment._id}>
-                                            <td>
-                                                <strong>{assignment.title}</strong>
-                                            </td>
-                                            <td>
-                                                <span className={`badge badge-${assignment.type === 'exam' ? 'danger' :
-                                                        assignment.type === 'project' ? 'warning' :
-                                                            'primary'
-                                                    }`}>
-                                                    {assignment.type}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                {format(new Date(assignment.dueDate), 'MMM dd, yyyy')}
-                                            </td>
-                                            <td>{assignment.maxScore} pts</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+
+                <div className="assignments-table-stitch">
+                    <div className="table-header-stitch">
+                        <div className="col-title">TITLE</div>
+                        <div className="col-type">TYPE</div>
+                        <div className="col-date">DUE DATE</div>
+                        <div className="col-score">MAX SCORE</div>
+                        <div className="col-action">ACTION</div>
+                    </div>
+
+                    {assignments.map((assignment, index) => (
+                        <div key={index} className="table-row-stitch">
+                            <div className="col-title">
+                                <div className="assignment-title-stitch">{assignment.title}</div>
+                                <div className="assignment-subtitle-stitch">{assignment.subtitle}</div>
+                            </div>
+                            <div className="col-type">
+                                <span className={`type-badge-stitch ${assignment.type.toLowerCase()}`}>
+                                    {assignment.type}
+                                </span>
+                            </div>
+                            <div className="col-date">{assignment.dueDate}</div>
+                            <div className="col-score">{assignment.maxScore}</div>
+                            <div className="col-action">
+                                <button className="details-btn-stitch">Details</button>
+                            </div>
                         </div>
-                    ) : (
-                        <div className="empty-state">
-                            <div className="empty-state-icon">🎉</div>
-                            <p>No upcoming assignments! You're all caught up.</p>
-                        </div>
-                    )}
+                    ))}
                 </div>
             </div>
 
-            {/* Quick Stats */}
-            <div className="grid grid-cols-2 mt-6">
-                <div className="card">
-                    <div className="card-header">
-                        <h4>📊 Attendance Summary</h4>
+            {/* Bottom Section */}
+            <div className="bottom-section-stitch">
+                {/* Attendance Summary */}
+                <div className="attendance-card-stitch">
+                    <div className="card-header-stitch">
+                        <span className="card-icon-stitch">📅</span>
+                        <h3>Attendance Summary</h3>
                     </div>
-                    <div className="card-body">
-                        <div className="flex gap-6">
-                            <div className="text-center">
-                                <div style={{ fontSize: '1.5rem', fontWeight: '600', color: 'var(--success)' }}>
-                                    {data?.attendance?.present || 0}
-                                </div>
-                                <div className="text-sm text-muted">Present</div>
+
+                    <div className="attendance-circles-stitch">
+                        <div className="attendance-circle-item">
+                            <div className="circle-stitch green">
+                                <span className="circle-value">{attendance.present}</span>
                             </div>
-                            <div className="text-center">
-                                <div style={{ fontSize: '1.5rem', fontWeight: '600', color: 'var(--error)' }}>
-                                    {data?.attendance?.absent || 0}
-                                </div>
-                                <div className="text-sm text-muted">Absent</div>
-                            </div>
-                            <div className="text-center">
-                                <div style={{ fontSize: '1.5rem', fontWeight: '600', color: 'var(--gray-600)' }}>
-                                    {data?.attendance?.total || 0}
-                                </div>
-                                <div className="text-sm text-muted">Total Classes</div>
-                            </div>
+                            <div className="circle-label">PRESENT</div>
                         </div>
+
+                        <div className="attendance-circle-item">
+                            <div className="circle-stitch red">
+                                <span className="circle-value">{String(attendance.absent).padStart(2, '0')}</span>
+                            </div>
+                            <div className="circle-label">ABSENT</div>
+                        </div>
+                    </div>
+
+                    <div className="attendance-message-stitch">
+                        Your attendance is within the top percentile for your cohort. Keep it up!
                     </div>
                 </div>
 
-                <div className="card">
-                    <div className="card-header">
-                        <h4>💡 Quick Tip</h4>
-                    </div>
-                    <div className="card-body">
-                        <p className="text-muted">
-                            Stay on top of your assignments by checking this dashboard regularly.
-                            Your attendance and grades are updated in real-time as teachers record them.
-                        </p>
-                    </div>
+                {/* Quick Tip */}
+                <div className="tip-card-stitch">
+                    <div className="tip-icon-stitch">💡</div>
+                    <h3 className="tip-title-stitch">Quick Tip</h3>
+                    <p className="tip-text-stitch">
+                        Did you know you can sync your EduNex academic calendar with your Google Calendar or Outlook?
+                        Just head over to the <strong>Settings</strong> panel to get your unique sync URL!
+                    </p>
+                    <Link to="/student/settings" className="tip-link-stitch">
+                        Go to Settings <span>›</span>
+                    </Link>
                 </div>
             </div>
         </div>

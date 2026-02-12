@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNex Admin Dashboard Expanded 2026</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary: #7c3aed;
+            --primary-light: #f5f3ff;
+            --primary-dark: #5b21b6;
+        }
+        @layer base {
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#7c3aed",
+              "background-light": "#f8f9fc",
+              "background-dark": "#0f172a",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.375rem", "lg": "0.5rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased h-screen overflow-hidden flex">
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col shrink-0">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-icons text-white text-2xl">school</span>
+</div>
+<span class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">EduNex</span>
+</div>
+<nav class="flex-1 px-4 space-y-1 overflow-y-auto mt-4">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl font-semibold" href="#">
+<span class="material-icons text-xl">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-colors font-medium" href="#">
+<span class="material-icons text-xl">people</span>
+<span>User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-colors font-medium" href="#">
+<span class="material-icons text-xl">auto_stories</span>
+<span>Course Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-colors font-medium" href="#">
+<span class="material-icons text-xl">account_tree</span>
+<span>Departments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-colors font-medium" href="#">
+<span class="material-icons text-xl">analytics</span>
+<span>Reports</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3 px-2 py-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden shrink-0 border-2 border-white dark:border-slate-700">
+<img alt="Admin Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl3-s1hrAq-xmrMj-yTLJiWOvzdSXUzdEWYUv2Ef8eMNuEGNqS27n5FKnmQVeM0qMGPzMAgF1pij_wf12djUk37MjyiIOG-CZ8-ugcgxlnneUHsfh1mEU5eXeEEQLE0X49AgxF6vk9TldAi2smQHf4lyMSzS0KJc3WhHkj1envCUsrGRwwfVQsbSEVkU5O0g5ogOdO46rf5pEg3YTFnqBPIOzjxvBOWW3oj83C21hlM82-OS9EKzeZs5Jkb5leT4UYMgEEC4xgCMSh"/>
+</div>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Alex Sterling</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">System Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-hidden">
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 h-20 shrink-0 flex items-center justify-between px-8">
+<div>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white">Admin Dashboard</h1>
+<p class="text-sm text-slate-500">Academic Year 2026 Monitoring</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-transparent focus:border-primary focus:ring-0 rounded-xl text-sm w-72 transition-all" placeholder="Search analytics..." type="text"/>
+</div>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full relative">
+<span class="material-icons">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full ring-2 ring-white dark:ring-slate-900"></span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-800 mx-2"></div>
+<button class="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-primary-dark shadow-lg shadow-primary/25 transition-all">
+<span class="material-icons text-lg">add_circle_outline</span>
+<span>Quick Action</span>
+</button>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-110 transition-transform"></div>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Total Users</p>
+<h3 class="text-3xl font-bold mb-2">12,450</h3>
+<p class="text-xs text-primary font-medium flex items-center gap-1">
+<span class="material-icons text-[14px]">arrow_upward</span> 12.5% increase
+                </p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-110 transition-transform"></div>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Active Courses</p>
+<h3 class="text-3xl font-bold mb-2">482</h3>
+<p class="text-xs text-slate-500 font-medium">Currently published</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-110 transition-transform"></div>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Departments</p>
+<h3 class="text-3xl font-bold mb-2">12</h3>
+<p class="text-xs text-slate-500 font-medium">Core faculties</p>
+</div>
+</div>
+<div class="space-y-8">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-icons text-slate-400">groups</span>
+<h4 class="font-bold text-lg">User Statistics</h4>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border-l-4 border-primary border-t border-r border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<h5 class="text-3xl font-bold">9</h5>
+<p class="text-sm text-slate-500 font-medium mt-1 uppercase tracking-wide">Total Users</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border-l-4 border-primary border-t border-r border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<h5 class="text-3xl font-bold">5</h5>
+<p class="text-sm text-slate-500 font-medium mt-1 uppercase tracking-wide">Students</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border-l-4 border-primary border-t border-r border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<h5 class="text-3xl font-bold">3</h5>
+<p class="text-sm text-slate-500 font-medium mt-1 uppercase tracking-wide">Teachers</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border-l-4 border-primary border-t border-r border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<h5 class="text-3xl font-bold">1</h5>
+<p class="text-sm text-slate-500 font-medium mt-1 uppercase tracking-wide">Admins</p>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-icons text-slate-400">auto_stories</span>
+<h4 class="font-bold text-lg">Course &amp; Content</h4>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border-l-4 border-primary border-t border-r border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<h5 class="text-3xl font-bold">5</h5>
+<p class="text-sm text-slate-500 font-medium mt-1 uppercase tracking-wide">Active Courses</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border-l-4 border-primary border-t border-r border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<h5 class="text-3xl font-bold">11</h5>
+<p class="text-sm text-slate-500 font-medium mt-1 uppercase tracking-wide">Enrollments</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border-l-4 border-primary border-t border-r border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<h5 class="text-3xl font-bold">2</h5>
+<p class="text-sm text-slate-500 font-medium mt-1 uppercase tracking-wide">Assignments (MongoDB)</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border-l-4 border-primary border-t border-r border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<h5 class="text-3xl font-bold">0</h5>
+<p class="text-sm text-slate-500 font-medium mt-1 uppercase tracking-wide">Submissions</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h4 class="font-bold text-lg mb-6 flex items-center gap-2">
+<span class="material-icons text-primary">add_chart</span>
+                    Course Growth 2026
+                </h4>
+<div class="flex items-end justify-between h-48 px-4 gap-4">
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/10 rounded-t-lg group relative h-[30%]">
+<div class="absolute inset-0 bg-primary rounded-t-lg opacity-80 hover:opacity-100 transition-opacity"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Jan</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/10 rounded-t-lg group relative h-[45%]">
+<div class="absolute inset-0 bg-primary rounded-t-lg opacity-80 hover:opacity-100 transition-opacity"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Feb</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/10 rounded-t-lg group relative h-[65%]">
+<div class="absolute inset-0 bg-primary rounded-t-lg opacity-80 hover:opacity-100 transition-opacity"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Mar</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/10 rounded-t-lg group relative h-[55%]">
+<div class="absolute inset-0 bg-primary rounded-t-lg opacity-80 hover:opacity-100 transition-opacity"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Apr</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/10 rounded-t-lg group relative h-[85%]">
+<div class="absolute inset-0 bg-primary rounded-t-lg opacity-80 hover:opacity-100 transition-opacity"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase">May</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/10 rounded-t-lg group relative h-[70%]">
+<div class="absolute inset-0 bg-primary rounded-t-lg opacity-80 hover:opacity-100 transition-opacity"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Jun</span>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h4 class="font-bold text-lg mb-6 flex items-center gap-2">
+<span class="material-icons text-slate-400">donut_large</span>
+                    User Distribution
+                </h4>
+<div class="relative flex flex-col items-center">
+<div class="w-40 h-40 relative">
+<svg class="w-full h-full -rotate-90" viewBox="0 0 36 36">
+<circle class="stroke-slate-100 dark:stroke-slate-800" cx="18" cy="18" fill="transparent" r="15.915" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#7c3aed" stroke-dasharray="70 100" stroke-dashoffset="0" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#a78bfa" stroke-dasharray="20 100" stroke-dashoffset="-70" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#ddd6fe" stroke-dasharray="10 100" stroke-dashoffset="-90" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-xl font-bold">12.4k</span>
+<span class="text-[8px] text-slate-400 uppercase tracking-widest font-bold">Users</span>
+</div>
+</div>
+<div class="mt-8 space-y-3 w-full">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="text-slate-600 dark:text-slate-400 font-medium">Students</span>
+</div>
+<span class="font-bold text-sm">70%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+<span class="text-slate-600 dark:text-slate-400 font-medium">Teachers</span>
+</div>
+<span class="font-bold text-sm">20%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-purple-200"></span>
+<span class="text-slate-600 dark:text-slate-400 font-medium">Admins</span>
+</div>
+<span class="font-bold text-sm">10%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12">
+<div class="lg:col-span-2 bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-bold text-lg flex items-center gap-2">
+<span class="material-icons text-slate-400">schedule</span>
+                        Recent Activity
+                    </h4>
+<button class="text-xs font-bold text-primary hover:underline">View All</button>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center shrink-0">
+<span class="material-icons text-primary text-xl">person_add</span>
+</div>
+<div class="flex-1 pb-4 border-b border-slate-50 dark:border-slate-800">
+<div class="flex justify-between">
+<p class="text-sm font-bold">New Teacher Registered</p>
+<span class="text-[10px] text-slate-400 font-bold uppercase">2m ago</span>
+</div>
+<p class="text-xs text-slate-500 mt-1">Dr. Aris Thorne added to Engineering faculty</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center shrink-0">
+<span class="material-icons text-primary text-xl">library_add</span>
+</div>
+<div class="flex-1 pb-4 border-b border-slate-50 dark:border-slate-800">
+<div class="flex justify-between">
+<p class="text-sm font-bold">Math 101 Course Created</p>
+<span class="text-[10px] text-slate-400 font-bold uppercase">45m ago</span>
+</div>
+<p class="text-xs text-slate-500 mt-1">Advanced Calculus module published by Dr. Sarah J.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center shrink-0">
+<span class="material-icons text-primary text-xl">bolt</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="text-sm font-bold">System Update Deployed</p>
+<span class="text-[10px] text-slate-400 font-bold uppercase">3h ago</span>
+</div>
+<p class="text-xs text-slate-500 mt-1">Version 5.1.0 (Purple Theme) pushed to stable node</p>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-primary p-8 rounded-2xl text-white shadow-xl shadow-primary/20 relative overflow-hidden group">
+<span class="material-icons absolute -right-6 -bottom-6 text-white/10 text-9xl group-hover:scale-110 transition-transform">auto_graph</span>
+<div class="relative z-10">
+<p class="text-white/70 text-[10px] font-bold uppercase tracking-widest mb-2">Platform Goal</p>
+<h5 class="text-2xl font-bold mb-4">Course Milestone</h5>
+<div class="h-2 w-full bg-white/20 rounded-full mb-3">
+<div class="h-full bg-white rounded-full" style="width: 75%"></div>
+</div>
+<p class="text-sm font-medium">750/1000 Courses for 2026</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-4">Highest Enrollment</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-purple-50 dark:bg-purple-900/20 rounded-xl flex items-center justify-center shrink-0">
+<span class="material-icons text-primary">psychology</span>
+</div>
+<div>
+<h5 class="font-bold text-sm">Data Science 101</h5>
+<p class="text-xs text-slate-500">1,450 Active Students</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="h-14 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 shrink-0">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">EduNex Internal Platform v4.0</p>
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Copyright 2026 EduNex Learning Management Systems</p>
+</footer>
+</main>
+
+</body></html>

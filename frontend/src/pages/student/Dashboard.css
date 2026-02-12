@@ -1,0 +1,457 @@
+/* ============================================
+   Student Dashboard - Stitch Design (Exact Match)
+   ============================================ */
+
+.student-dashboard-stitch {
+    padding: 48px 64px;
+    max-width: 1600px;
+    margin: 0 auto;
+    background: #F8FAFC;
+    min-height: 100vh;
+}
+
+/* Header */
+.dashboard-header-stitch {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.dashboard-title-stitch {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+}
+
+.dashboard-subtitle-stitch {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #6B7280;
+    margin: 0;
+    font-weight: 400;
+}
+
+.term-badge-stitch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.bell-icon-stitch {
+    font-size: 16px;
+}
+
+/* Stats Grid */
+.stats-grid-stitch {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.stat-card-stitch {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    border-top: 4px solid;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.stat-card-stitch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card-stitch.purple-border {
+    border-top-color: #7C3AED;
+}
+
+.stat-card-stitch.orange-border {
+    border-top-color: #F59E0B;
+}
+
+.stat-card-stitch.green-border {
+    border-top-color: #10B981;
+}
+
+.stat-card-stitch.blue-border {
+    border-top-color: #3B82F6;
+}
+
+.stat-label-stitch {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #9CA3AF;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.stat-value-stitch {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #1A1A1A;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-value-stitch.orange {
+    color: #F59E0B;
+}
+
+.stat-value-stitch.green {
+    color: #10B981;
+}
+
+.stat-value-stitch.blue {
+    color: #3B82F6;
+}
+
+.stat-meta-stitch {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.stat-meta-stitch.success {
+    color: #7C3AED;
+}
+
+.stat-meta-stitch.info {
+    color: #3B82F6;
+}
+
+.stat-icon-stitch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    opacity: 0.3;
+}
+
+/* Assignments Section */
+.assignments-section-stitch {
+    margin-bottom: 32px;
+}
+
+.section-header-stitch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header-stitch h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0;
+}
+
+.view-all-link-stitch {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #7C3AED;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.view-all-link-stitch:hover {
+    color: #6D28D9;
+}
+
+/* Assignments Table */
+.assignments-table-stitch {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #F3F4F6;
+}
+
+.table-header-stitch {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 16px 24px;
+    background: #F9FAFB;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.table-header-stitch>div {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #9CA3AF;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table-row-stitch {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid #F3F4F6;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.table-row-stitch:last-child {
+    border-bottom: none;
+}
+
+.table-row-stitch:hover {
+    background: #FAFAFA;
+}
+
+.assignment-title-stitch {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 4px;
+}
+
+.assignment-subtitle-stitch {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #9CA3AF;
+}
+
+.type-badge-stitch {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.type-badge-stitch.exam {
+    background: #FEE2E2;
+    color: #991B1B;
+}
+
+.type-badge-stitch.project {
+    background: #DBEAFE;
+    color: #1E40AF;
+}
+
+.type-badge-stitch.homework {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.col-date,
+.col-score {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #374151;
+}
+
+.details-btn-stitch {
+    padding: 8px 20px;
+    background: #7C3AED;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.details-btn-stitch:hover {
+    background: #6D28D9;
+    transform: translateY(-1px);
+}
+
+/* Bottom Section */
+.bottom-section-stitch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+/* Attendance Card */
+.attendance-card-stitch {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 28px;
+}
+
+.card-header-stitch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.card-icon-stitch {
+    font-size: 20px;
+}
+
+.card-header-stitch h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0;
+}
+
+.attendance-circles-stitch {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 24px;
+}
+
+.attendance-circle-item {
+    text-align: center;
+}
+
+.circle-stitch {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 8px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+}
+
+.circle-stitch.green {
+    border-color: #10B981;
+}
+
+.circle-stitch.red {
+    border-color: #EF4444;
+}
+
+.circle-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #1A1A1A;
+}
+
+.circle-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #9CA3AF;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.attendance-message-stitch {
+    padding: 16px;
+    background: #ECFDF5;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #065F46;
+    line-height: 1.6;
+}
+
+/* Quick Tip Card */
+.tip-card-stitch {
+    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+    border-radius: 12px;
+    padding: 28px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-icon-stitch {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.tip-title-stitch {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+}
+
+.tip-text-stitch {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    opacity: 0.95;
+}
+
+.tip-link-stitch {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    transition: gap 0.2s ease;
+}
+
+.tip-link-stitch:hover {
+    gap: 10px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .stats-grid-stitch {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bottom-section-stitch {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .student-dashboard-stitch {
+        padding: 24px;
+    }
+
+    .stats-grid-stitch {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-header-stitch {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .table-header-stitch,
+    .table-row-stitch {
+        grid-template-columns: 1fr;
+    }
+}

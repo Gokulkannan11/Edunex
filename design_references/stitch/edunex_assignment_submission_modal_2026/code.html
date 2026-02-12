@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNex Assignment Submission Modal 2026</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#2463eb",
+                "background-light": "#f6f6f8",
+                "background-dark": "#111621",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center p-4">
+<!-- Backdrop Overlay -->
+<div class="fixed inset-0 bg-black/40 backdrop-blur-sm z-0"></div>
+<!-- Modal Container -->
+<div class="relative z-10 w-full max-w-2xl bg-white dark:bg-slate-900 shadow-2xl rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+<!-- Header -->
+<div class="px-6 py-5 border-b border-slate-100 dark:border-slate-800 flex justify-between items-start">
+<div>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Submit Assignment</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Project Phase 1: Systems Analysis &amp; Design (Spring 2026)</p>
+</div>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-icons text-xl">close</span>
+</button>
+</div>
+<!-- Course Info Strip -->
+<div class="px-6 py-3 bg-slate-50 dark:bg-slate-800/50 flex flex-wrap gap-x-6 gap-y-2 border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-2">
+<span class="material-icons text-sm text-primary">school</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-300 uppercase tracking-wider">Subject: <span class="text-slate-900 dark:text-white">CS101</span></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-icons text-sm text-primary">person</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-300 uppercase tracking-wider">Professor: <span class="text-slate-900 dark:text-white">Dr. Smith</span></span>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<!-- File Upload Area -->
+<div class="group cursor-pointer relative border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-primary dark:hover:border-primary rounded-xl p-8 transition-all duration-200 bg-slate-50/50 dark:bg-slate-900/50 hover:bg-primary/5">
+<input class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" type="file"/>
+<div class="flex flex-col items-center justify-center text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-icons text-primary text-3xl">cloud_upload</span>
+</div>
+<p class="text-slate-900 dark:text-white font-semibold">Drag and drop files here or click to browse</p>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-2">PDF, DOCX, ZIP, or PPTX up to 25MB</p>
+</div>
+</div>
+<!-- Selected Files List -->
+<div>
+<h3 class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
+                    Selected Files <span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full">1</span>
+</h3>
+<div class="space-y-2">
+<!-- File Item -->
+<div class="flex items-center justify-between p-3 border border-slate-200 dark:border-slate-800 rounded-lg bg-white dark:bg-slate-900 group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-red-50 dark:bg-red-900/20 rounded flex items-center justify-center">
+<span class="material-icons text-red-500">description</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate max-w-[250px]">systems_analysis_phase1_v2.pdf</p>
+<p class="text-[11px] text-slate-500 dark:text-slate-400">2.4 MB • Uploaded just now</p>
+</div>
+</div>
+<button class="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors">
+<span class="material-icons text-xl">delete_outline</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Comments Area -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300" for="comment">Add a comment (Optional)</label>
+<textarea class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400 resize-none" id="comment" placeholder="Include any notes for your professor regarding this submission..." rows="3"></textarea>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<div class="flex items-center gap-2 text-amber-600 dark:text-amber-400">
+<span class="material-icons text-sm">schedule</span>
+<span class="text-[11px] font-medium uppercase tracking-tight">Due: March 15, 2026, 11:59 PM</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors border border-transparent">
+                    Cancel
+                </button>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 text-sm font-semibold rounded-lg shadow-sm shadow-primary/20 transition-all flex items-center gap-2">
+                    Submit Assignment
+                    <span class="material-icons text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

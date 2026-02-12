@@ -92,20 +92,7 @@ const EnrollCourse = () => {
                 <p className="page-subtitle">Browse and enroll in available courses</p>
             </div>
 
-            {/* CRUD Operations Info */}
-            <div className="card mb-6" style={{ background: 'var(--info-light)', borderColor: 'var(--info)' }}>
-                <div className="card-body">
-                    <h4 style={{ marginBottom: '0.5rem' }}>🔧 CRUD Operations Demo</h4>
-                    <p className="text-sm" style={{ marginBottom: '0.5rem' }}>
-                        This page demonstrates <strong>CREATE</strong> and <strong>DELETE</strong> operations on the MySQL <code>enrollments</code> table:
-                    </p>
-                    <ul style={{ marginLeft: '1.5rem', fontSize: '0.875rem' }}>
-                        <li><strong>CREATE</strong>: Click "Enroll" → Inserts new row in <code>enrollments</code> table</li>
-                        <li><strong>READ</strong>: View your enrolled courses below</li>
-                        <li><strong>DELETE</strong>: Click "Drop Course" → Deletes row from <code>enrollments</code> table</li>
-                    </ul>
-                </div>
-            </div>
+
 
             {error && <div className="alert alert-error mb-4">{error}</div>}
             {success && <div className="alert alert-success mb-4">{success}</div>}

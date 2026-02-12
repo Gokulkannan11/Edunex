@@ -1,208 +1,189 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
+import './CreateAssignment.css';
 
 const CreateAssignment = () => {
     const navigate = useNavigate();
-    const [courses, setCourses] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [submitting, setSubmitting] = useState(false);
-    const [success, setSuccess] = useState(false);
-    const [error, setError] = useState(null);
-
     const [formData, setFormData] = useState({
-        courseId: '',
         title: '',
+        type: 'Homework',
         description: '',
-        type: 'homework',
+        maxScore: 100,
+        autoGrade: false,
+        availableFrom: '',
         dueDate: '',
-        maxScore: 100
+        acceptLate: false,
+        publishImmediately: true,
+        notifyStudents: true
     });
-
-    useEffect(() => {
-        fetchCourses();
-    }, []);
-
-    const fetchCourses = async () => {
-        try {
-            const response = await api.get('/teacher/courses');
-            setCourses(response.data.data.courses);
-        } catch (err) {
-            setError('Failed to load courses');
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: name === 'courseId' || name === 'maxScore' ? parseInt(value) : value
-        }));
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitting(true);
-        setError(null);
-
         try {
             await api.post('/teacher/assignments', formData);
-            setSuccess(true);
-            setTimeout(() => {
-                navigate('/teacher');
-            }, 2000);
+            navigate('/teacher/assignments');
         } catch (err) {
-            setError(err.response?.data?.message || 'Failed to create assignment');
-        } finally {
-            setSubmitting(false);
+            console.error('Failed to create assignment:', err);
         }
     };
 
-    if (loading) {
-        return (
-            <div className="loading-container">
-                <div className="spinner"></div>
-                <p>Loading...</p>
-            </div>
-        );
-    }
-
     return (
-        <div>
-            <div className="page-header">
-                <h1 className="page-title">Create Assignment ➕</h1>
-                <p className="page-subtitle">Create a new assignment for your course</p>
+        <div className="create-assignment-page">
+            <div className="breadcrumb-stitch">
+                Courses › CS101 › Create Assignment
             </div>
 
-            <div className="card" style={{ maxWidth: '700px' }}>
-                <div className="card-header">
-                    <div className="flex items-center gap-2">
-                        <span className="badge badge-primary">MongoDB Collection</span>
-                        <span className="text-sm text-muted">Assignments are stored in MongoDB</span>
+            <div className="page-header-stitch">
+                <h1 className="page-title-stitch">Create Assignment</h1>
+                <p className="page-subtitle-stitch">
+                    Add a new assignment for your students to track progress and learning objectives.
+                </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="assignment-form-stitch">
+                {/* Basic Information */}
+                <div className="form-section-stitch">
+                    <h3 className="section-title-form">📄 Basic Information</h3>
+                    <div className="form-group-stitch">
+                        <label>Assignment Title</label>
+                        <input
+                            type="text"
+                            placeholder="e.g., Introduction to Data Structures"
+                            value={formData.title}
+                            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                            required
+                        />
+                    </div>
+                    <div className="form-group-stitch">
+                        <label>Assignment Type</label>
+                        <select value={formData.type} onChange={(e) => setFormData({ ...formData, type: e.target.value })}>
+                            <option>Homework</option>
+                            <option>Project</option>
+                            <option>Exam</option>
+                            <option>Quiz</option>
+                        </select>
+                    </div>
+                    <div className="form-group-stitch">
+                        <label>Description & Instructions</label>
+                        <textarea
+                            rows="5"
+                            placeholder="Describe the tasks, requirements, and learning objectives for your students..."
+                            value={formData.description}
+                            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                        ></textarea>
                     </div>
                 </div>
-                <div className="card-body">
-                    {success && (
-                        <div className="alert alert-success">
-                            ✅ Assignment created successfully! Redirecting...
-                        </div>
-                    )}
 
-                    {error && (
-                        <div className="alert alert-error">{error}</div>
-                    )}
-
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label className="form-label">Course *</label>
-                            <select
-                                name="courseId"
-                                className="form-input"
-                                value={formData.courseId}
-                                onChange={handleChange}
-                                required
-                            >
-                                <option value="">Select a course</option>
-                                {courses.map(course => (
-                                    <option key={course.id} value={course.id}>
-                                        {course.code} - {course.name}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
-
-                        <div className="form-group">
-                            <label className="form-label">Title *</label>
+                {/* Grading */}
+                <div className="form-section-stitch">
+                    <h3 className="section-title-form">⭐ Grading</h3>
+                    <div className="form-row-stitch">
+                        <div className="form-group-stitch">
+                            <label>Max Score</label>
                             <input
-                                type="text"
-                                name="title"
-                                className="form-input"
-                                value={formData.title}
-                                onChange={handleChange}
-                                placeholder="e.g., Database Normalization Exercise"
-                                required
+                                type="number"
+                                value={formData.maxScore}
+                                onChange={(e) => setFormData({ ...formData, maxScore: e.target.value })}
                             />
                         </div>
-
-                        <div className="form-group">
-                            <label className="form-label">Description *</label>
-                            <textarea
-                                name="description"
-                                className="form-input"
-                                rows="4"
-                                value={formData.description}
-                                onChange={handleChange}
-                                placeholder="Detailed description of the assignment..."
-                                required
-                                style={{ resize: 'vertical' }}
-                            />
-                        </div>
-
-                        <div className="grid grid-cols-3" style={{ gap: '1rem' }}>
-                            <div className="form-group">
-                                <label className="form-label">Type *</label>
-                                <select
-                                    name="type"
-                                    className="form-input"
-                                    value={formData.type}
-                                    onChange={handleChange}
-                                    required
-                                >
-                                    <option value="homework">Homework</option>
-                                    <option value="quiz">Quiz</option>
-                                    <option value="project">Project</option>
-                                    <option value="exam">Exam</option>
-                                </select>
-                            </div>
-
-                            <div className="form-group">
-                                <label className="form-label">Due Date *</label>
+                        <div className="form-group-stitch">
+                            <label className="toggle-label">
                                 <input
-                                    type="datetime-local"
-                                    name="dueDate"
-                                    className="form-input"
-                                    value={formData.dueDate}
-                                    onChange={handleChange}
-                                    required
+                                    type="checkbox"
+                                    checked={formData.autoGrade}
+                                    onChange={(e) => setFormData({ ...formData, autoGrade: e.target.checked })}
                                 />
-                            </div>
-
-                            <div className="form-group">
-                                <label className="form-label">Max Score *</label>
-                                <input
-                                    type="number"
-                                    name="maxScore"
-                                    className="form-input"
-                                    value={formData.maxScore}
-                                    onChange={handleChange}
-                                    min="1"
-                                    max="1000"
-                                    required
-                                />
-                            </div>
+                                <span>Auto-grade submissions</span>
+                            </label>
                         </div>
-
-                        <div className="flex gap-4 mt-6">
-                            <button
-                                type="submit"
-                                className="btn btn-primary btn-lg"
-                                disabled={submitting}
-                            >
-                                {submitting ? 'Creating...' : 'Create Assignment'}
-                            </button>
-                            <button
-                                type="button"
-                                className="btn btn-secondary btn-lg"
-                                onClick={() => navigate('/teacher')}
-                            >
-                                Cancel
-                            </button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+
+                {/* Schedule */}
+                <div className="form-section-stitch">
+                    <h3 className="section-title-form">📅 Schedule</h3>
+                    <div className="form-row-stitch">
+                        <div className="form-group-stitch">
+                            <label>Available From</label>
+                            <input
+                                type="datetime-local"
+                                value={formData.availableFrom}
+                                onChange={(e) => setFormData({ ...formData, availableFrom: e.target.value })}
+                            />
+                        </div>
+                        <div className="form-group-stitch">
+                            <label>Due Date</label>
+                            <input
+                                type="datetime-local"
+                                value={formData.dueDate}
+                                onChange={(e) => setFormData({ ...formData, dueDate: e.target.value })}
+                            />
+                        </div>
+                    </div>
+                    <div className="form-group-stitch">
+                        <label className="toggle-label">
+                            <input
+                                type="checkbox"
+                                checked={formData.acceptLate}
+                                onChange={(e) => setFormData({ ...formData, acceptLate: e.target.checked })}
+                            />
+                            <span>Accept late submissions</span>
+                        </label>
+                    </div>
+                </div>
+
+                {/* Attachments */}
+                <div className="form-section-stitch">
+                    <h3 className="section-title-form">📎 Attachments</h3>
+                    <div className="upload-area-stitch">
+                        <div className="upload-icon">☁️</div>
+                        <p className="upload-text">Drag and drop files here</p>
+                        <p className="upload-meta">PDF, DOCX, ZIP or MP4 (Max 50MB)</p>
+                        <button type="button" className="btn-browse">Browse Files</button>
+                    </div>
+                </div>
+
+                {/* Publishing Settings */}
+                <div className="form-section-stitch">
+                    <h3 className="section-title-form">⚙️ Publishing Settings</h3>
+                    <div className="form-group-stitch">
+                        <label className="toggle-label">
+                            <input
+                                type="checkbox"
+                                checked={formData.publishImmediately}
+                                onChange={(e) => setFormData({ ...formData, publishImmediately: e.target.checked })}
+                            />
+                            <span>Publish Immediately</span>
+                        </label>
+                        <p className="helper-text">Make assignment visible to students right after saving</p>
+                    </div>
+                    <div className="form-group-stitch">
+                        <label className="toggle-label">
+                            <input
+                                type="checkbox"
+                                checked={formData.notifyStudents}
+                                onChange={(e) => setFormData({ ...formData, notifyStudents: e.target.checked })}
+                            />
+                            <span>Notify Students</span>
+                        </label>
+                        <p className="helper-text">Send an email and app notification to all enrolled students</p>
+                    </div>
+                </div>
+
+                {/* Form Actions */}
+                <div className="form-actions-stitch">
+                    <button type="button" className="btn-cancel" onClick={() => navigate(-1)}>
+                        Cancel
+                    </button>
+                    <button type="button" className="btn-draft">
+                        Save as Draft
+                    </button>
+                    <button type="submit" className="btn-create">
+                        Create Assignment
+                    </button>
+                </div>
+            </form>
         </div>
     );
 };

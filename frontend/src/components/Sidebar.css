@@ -1,0 +1,222 @@
+/* ============================================
+   Sidebar Component - Stitch Design (Pure White)
+   ============================================ */
+
+.sidebar-new {
+    width: 240px;
+    height: 100vh;
+    background: #FFFFFF;
+    border-right: 1px solid #E5E7EB;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    overflow-y: auto;
+}
+
+/* Logo Section */
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 20px;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: #7C3AED;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1A1A1A;
+}
+
+/* Navigation */
+.sidebar-nav {
+    flex: 1;
+    padding: 16px 0;
+    overflow-y: auto;
+}
+
+.nav-section {
+    margin-bottom: 24px;
+}
+
+.nav-section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #9CA3AF;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0 20px 8px 20px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    margin: 2px 12px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6B7280;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    background: #F9FAFB;
+    color: #374151;
+}
+
+.nav-item-active {
+    background: #7C3AED !important;
+    color: #FFFFFF !important;
+}
+
+.nav-item-active .nav-icon {
+    opacity: 1;
+}
+
+.nav-icon {
+    font-size: 18px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.nav-item-active .nav-icon {
+    opacity: 1;
+}
+
+.nav-label {
+    flex: 1;
+}
+
+/* User Profile Section */
+.sidebar-user {
+    padding: 20px;
+    border-top: 1px solid #F3F4F6;
+    background: #FAFAFA;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.user-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.user-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-id {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #9CA3AF;
+}
+
+.user-role {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: #7C3AED;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Logout Button */
+.logout-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6B7280;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: #FEF2F2;
+    border-color: #FCA5A5;
+    color: #DC2626;
+}
+
+.logout-icon {
+    font-size: 16px;
+}
+
+/* Scrollbar Styling */
+.sidebar-new::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-new::-webkit-scrollbar-track {
+    background: #F9FAFB;
+}
+
+.sidebar-new::-webkit-scrollbar-thumb {
+    background: #D1D5DB;
+    border-radius: 3px;
+}
+
+.sidebar-new::-webkit-scrollbar-thumb:hover {
+    background: #9CA3AF;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar-new {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+}

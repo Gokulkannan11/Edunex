@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNex Create Assignment Form 2026</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2463eb",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .toggle-checkbox:checked { right: 0; border-color: #2463eb; }
+        .toggle-checkbox:checked + .toggle-label { background-color: #2463eb; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display text-slate-900 dark:text-slate-100">
+<!-- Header Section -->
+<header class="max-w-5xl mx-auto pt-8 px-6">
+<nav aria-label="Breadcrumb" class="flex text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">
+<ol class="flex items-center space-x-2">
+<li><a class="hover:text-primary transition-colors" href="#">Courses</a></li>
+<li><span class="material-icons text-base">chevron_right</span></li>
+<li><a class="hover:text-primary transition-colors" href="#">CS101</a></li>
+<li><span class="material-icons text-base">chevron_right</span></li>
+<li class="text-primary font-semibold">Create Assignment</li>
+</ol>
+</nav>
+<div class="mb-8">
+<h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Create Assignment</h1>
+<p class="mt-2 text-slate-600 dark:text-slate-400">Add a new assignment for your students to track progress and learning objectives.</p>
+</div>
+</header>
+<!-- Form Main Container -->
+<main class="max-w-5xl mx-auto px-6 pb-24">
+<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm overflow-hidden">
+<form action="#" method="POST">
+<!-- Section 1: Basic Info -->
+<div class="p-8 border-b border-slate-100 dark:border-slate-800">
+<h2 class="text-lg font-semibold mb-6 flex items-center">
+<span class="material-icons mr-2 text-primary">description</span> Basic Information
+                    </h2>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-medium mb-2" for="title">Assignment Title</label>
+<input class="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="title" name="title" placeholder="e.g., Introduction to Data Structures" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium mb-2" for="type">Assignment Type</label>
+<select class="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="type" name="type">
+<option value="homework">Homework</option>
+<option value="project">Project</option>
+<option value="exam">Exam</option>
+<option value="quiz">Quiz</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2" for="description">Description &amp; Instructions</label>
+<textarea class="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none resize-none" id="description" name="description" placeholder="Describe the tasks, requirements, and learning objectives for your students..." rows="5"></textarea>
+</div>
+</div>
+</div>
+<!-- Section 2: Grading -->
+<div class="p-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/20">
+<h2 class="text-lg font-semibold mb-6 flex items-center">
+<span class="material-icons mr-2 text-primary">grade</span> Grading
+                    </h2>
+<div class="flex flex-wrap items-end gap-8">
+<div class="w-48">
+<label class="block text-sm font-medium mb-2" for="max-score">Max Score</label>
+<input class="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="max-score" name="max-score" placeholder="100" type="number"/>
+</div>
+<div class="flex items-center h-[50px]">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:bg-slate-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-3 text-sm font-medium">Auto-grade submissions</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Section 3: Dates -->
+<div class="p-8 border-b border-slate-100 dark:border-slate-800">
+<h2 class="text-lg font-semibold mb-6 flex items-center">
+<span class="material-icons mr-2 text-primary">event</span> Schedule
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+<div>
+<label class="block text-sm font-medium mb-2" for="available-from">Available From</label>
+<div class="relative">
+<span class="material-icons absolute left-3 top-2.5 text-slate-400 text-lg">calendar_today</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="available-from" name="available-from" type="datetime-local"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2" for="due-date">Due Date</label>
+<div class="relative">
+<span class="material-icons absolute left-3 top-2.5 text-slate-400 text-lg">alarm</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="due-date" name="due-date" type="datetime-local"/>
+</div>
+</div>
+</div>
+<div class="flex items-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:bg-slate-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-3 text-sm font-medium">Accept late submissions</span>
+</label>
+</div>
+</div>
+<!-- Section 4: Attachments -->
+<div class="p-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/20">
+<h2 class="text-lg font-semibold mb-6 flex items-center">
+<span class="material-icons mr-2 text-primary">attach_file</span> Attachments
+                    </h2>
+<div class="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-10 flex flex-col items-center justify-center bg-white dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer">
+<div class="bg-primary/10 p-4 rounded-full mb-4 group-hover:scale-110 transition-transform">
+<span class="material-icons text-primary text-3xl">cloud_upload</span>
+</div>
+<p class="text-base font-semibold mb-1">Drag and drop files here</p>
+<p class="text-sm text-slate-500 mb-6">PDF, DOCX, ZIP or MP4 (Max 50MB)</p>
+<button class="px-6 py-2 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-sm font-semibold hover:border-primary hover:text-primary transition-all shadow-sm" type="button">
+                            Browse Files
+                        </button>
+</div>
+</div>
+<!-- Section 5: Settings -->
+<div class="p-8">
+<h2 class="text-lg font-semibold mb-6 flex items-center">
+<span class="material-icons mr-2 text-primary">settings</span> Publishing Settings
+                    </h2>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 rounded-lg bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-800 shadow-sm">
+<div>
+<h4 class="font-medium">Publish Immediately</h4>
+<p class="text-xs text-slate-500">Make assignment visible to students right after saving</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:bg-slate-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-start p-4">
+<input checked="" class="w-5 h-5 mt-0.5 rounded border-slate-300 text-primary focus:ring-primary" id="notify" name="notify" type="checkbox"/>
+<div class="ml-3">
+<label class="text-sm font-medium" for="notify">Notify Students</label>
+<p class="text-xs text-slate-500">Send an email and app notification to all enrolled students</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="px-8 py-6 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="text-xs text-slate-400 font-medium">
+                        EduNex LMS © 2026 • Teacher Portal v4.2.0
+                    </div>
+<div class="flex items-center gap-4">
+<a class="text-sm font-medium text-slate-500 hover:text-red-500 transition-colors" href="#">Cancel</a>
+<button class="px-6 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 font-semibold text-sm hover:bg-white dark:hover:bg-slate-800 transition-all shadow-sm" type="button">
+                            Save as Draft
+                        </button>
+<button class="px-8 py-2.5 rounded-lg bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/20" type="submit">
+                            Create Assignment
+                        </button>
+</div>
+</div>
+</form>
+</div>
+</main>
+</body></html>

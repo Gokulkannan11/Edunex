@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNex Admin User Management Name Only 2026</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9234ea",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#191121",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex">
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-primary/10 min-h-screen hidden lg:block">
+<div class="p-6">
+<div class="flex items-center gap-2 mb-8">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons-outlined text-white text-sm">school</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-primary">EduNex</span>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-icons-outlined text-xl">dashboard</span> Dashboard
+                    </a>
+<a class="flex items-center gap-3 px-4 py-2 bg-primary/10 text-primary rounded-lg font-medium" href="#">
+<span class="material-icons-outlined text-xl">people</span> User Management
+                    </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-icons-outlined text-xl">library_books</span> Courses
+                    </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-icons-outlined text-xl">analytics</span> Reports
+                    </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-icons-outlined text-xl">settings</span> Settings
+                    </a>
+</nav>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white">User Management</h1>
+<p class="text-slate-500 dark:text-slate-400">Manage students, teachers, and administrators</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg flex items-center justify-center gap-2 font-medium transition-all shadow-lg shadow-primary/20">
+<span class="material-icons-outlined text-lg">add</span>
+                    Add New User
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-primary/10 text-primary rounded-lg">
+<span class="material-icons-outlined">school</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Students</p>
+<p class="text-2xl font-bold">5</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-indigo-500/10 text-indigo-500 rounded-lg">
+<span class="material-icons-outlined">person</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Teachers</p>
+<p class="text-2xl font-bold">3</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-emerald-500/10 text-emerald-500 rounded-lg">
+<span class="material-icons-outlined">admin_panel_settings</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Admins</p>
+<p class="text-2xl font-bold">1</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/5 shadow-sm mb-6 flex flex-wrap gap-4">
+<div class="flex-1 min-w-[280px] relative">
+<span class="material-icons-outlined absolute left-3 top-2.5 text-slate-400 text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Search name, email, or ID..." type="text"/>
+</div>
+<div class="flex gap-4">
+<select class="bg-slate-50 dark:bg-slate-800 border-none rounded-lg py-2 pl-4 pr-10 text-sm focus:ring-2 focus:ring-primary/20">
+<option>Role</option>
+<option>Student</option>
+<option>Teacher</option>
+<option>Admin</option>
+</select>
+<select class="bg-slate-50 dark:bg-slate-800 border-none rounded-lg py-2 pl-4 pr-10 text-sm focus:ring-2 focus:ring-primary/20">
+<option>Department</option>
+<option>Computer Science</option>
+<option>Business</option>
+<option>Design</option>
+<option>Science</option>
+</select>
+<select class="bg-slate-50 dark:bg-slate-800 border-none rounded-lg py-2 pl-4 pr-10 text-sm focus:ring-2 focus:ring-primary/20">
+<option>Status</option>
+<option>Active</option>
+<option>Inactive</option>
+</select>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-primary/5 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50 border-b border-primary/5">
+<tr>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase">ID</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase">Name</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase">Email</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase">Role</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase">Department</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase">Status</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase">Registration Date</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#ADM-001</td>
+<td class="px-6 py-4">
+<span class="text-sm font-semibold">Sarah Jenkins</span>
+</td>
+<td class="px-6 py-4 text-sm">sarah.j@edunex.edu</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400">Admin</span>
+</td>
+<td class="px-6 py-4 text-sm">Administration</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]"></div>
+<span class="text-sm font-medium">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Jan 12, 2026</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-lg">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-lg">more_vert</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#TEA-042</td>
+<td class="px-6 py-4">
+<span class="text-sm font-semibold">David Thorne</span>
+</td>
+<td class="px-6 py-4 text-sm">d.thorne@edunex.edu</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-400">Teacher</span>
+</td>
+<td class="px-6 py-4 text-sm">Computer Science</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-sm font-medium">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Feb 05, 2026</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-lg">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-lg">more_vert</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#STU-882</td>
+<td class="px-6 py-4">
+<span class="text-sm font-semibold">Maya Lin</span>
+</td>
+<td class="px-6 py-4 text-sm">m.lin@edunex.edu</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">Student</span>
+</td>
+<td class="px-6 py-4 text-sm">Visual Arts</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-sm font-medium">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Mar 10, 2026</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-lg">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-lg">more_vert</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#STU-883</td>
+<td class="px-6 py-4">
+<span class="text-sm font-semibold">James Chen</span>
+</td>
+<td class="px-6 py-4 text-sm">j.chen@edunex.edu</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">Student</span>
+</td>
+<td class="px-6 py-4 text-sm">Business Management</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-sm font-medium">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Mar 12, 2026</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-lg">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-lg">more_vert</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#TEA-045</td>
+<td class="px-6 py-4">
+<span class="text-sm font-semibold">Dr. Elena Rodriguez</span>
+</td>
+<td class="px-6 py-4 text-sm">e.rodriguez@edunex.edu</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-400">Teacher</span>
+</td>
+<td class="px-6 py-4 text-sm">Natural Science</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-sm font-medium">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Apr 01, 2026</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-lg">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-lg">more_vert</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#STU-901</td>
+<td class="px-6 py-4">
+<span class="text-sm font-semibold">Oliver Smith</span>
+</td>
+<td class="px-6 py-4 text-sm">o.smith@edunex.edu</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">Student</span>
+</td>
+<td class="px-6 py-4 text-sm">Computer Science</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-sm font-medium">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Apr 15, 2026</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-lg">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-lg">more_vert</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-primary/5 flex items-center justify-between">
+<p class="text-sm text-slate-500 dark:text-slate-400">Showing 1-9 of 9 users</p>
+<div class="flex gap-2">
+<button class="px-4 py-1.5 text-sm font-medium border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-50 transition-colors cursor-not-allowed opacity-50">
+                            Previous
+                        </button>
+<button class="px-4 py-1.5 text-sm font-medium border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-50 transition-colors cursor-not-allowed opacity-50">
+                            Next
+                        </button>
+</div>
+</div>
+</div>
+<footer class="mt-12 pt-8 border-t border-primary/5 text-center text-slate-400 text-sm pb-8">
+<p>© 2026 EduNex LMS. All rights reserved. Enterprise User Management Dashboard v4.2.0</p>
+</footer>
+</main>
+</div>
+
+</body></html>

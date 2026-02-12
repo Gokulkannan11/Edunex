@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNex Teacher Course Management 2026</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2463eb",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "card-bg": "#ffffff",
+                        "success": "#10b981",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header Section -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div>
+<h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">My Courses</h1>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Manage your teaching assignments and student performance.</p>
+</div>
+<div class="flex items-center space-x-3">
+<button class="inline-flex items-center px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+<span class="material-icons text-sm mr-2">add</span>
+                        New Course
+                    </button>
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+<span class="material-icons text-primary">person</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Navigation & Filters -->
+<nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 gap-4">
+<!-- Tabs -->
+<div class="flex space-x-8">
+<a class="border-b-2 border-primary py-4 px-1 text-sm font-medium text-primary" href="#">
+                        All Courses
+                    </a>
+<a class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:text-slate-700 hover:border-slate-300" href="#">
+                        Active
+                    </a>
+<a class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:text-slate-700 hover:border-slate-300" href="#">
+                        Completed
+                    </a>
+</div>
+<!-- Filters -->
+<div class="flex items-center space-x-4 pb-2 sm:pb-0">
+<div class="relative">
+<select class="appearance-none pl-3 pr-10 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary">
+<option>Semester: 2026 Spring</option>
+<option>Semester: 2026 Fall</option>
+<option>Semester: 2025 Winter</option>
+</select>
+<span class="material-icons absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-sm">expand_more</span>
+</div>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-icons">search</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Grid -->
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+<!-- Course Card 1 -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-xs font-bold text-primary tracking-wider uppercase mb-1 block">PHY-201</span>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Theoretical Physics II</h2>
+</div>
+<div class="flex items-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                            Active
+                        </span>
+<button class="ml-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-icons">more_vert</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm mr-2 text-slate-400">group</span>
+                        45 Students enrolled
+                    </div>
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm mr-2 text-slate-400">star_outline</span>
+                        3 Credits
+                    </div>
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm mr-2 text-slate-400">schedule</span>
+                        Mon/Wed 10:00 AM
+                    </div>
+</div>
+<div class="flex flex-wrap gap-4 py-4 mb-6 border-y border-slate-100 dark:border-slate-800">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center mr-3">
+<span class="material-icons text-orange-600 text-sm">assignment</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-none mb-1">Submissions</p>
+<p class="text-sm font-semibold">12 Pending</p>
+</div>
+</div>
+<div class="flex items-center ml-auto md:ml-0">
+<div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center mr-3">
+<span class="material-icons text-primary text-sm">how_to_reg</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-none mb-1">Attendance</p>
+<p class="text-sm font-semibold">92% Average</p>
+</div>
+</div>
+<div class="flex items-center ml-auto md:ml-0">
+<div class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/20 flex items-center justify-center mr-3">
+<span class="material-icons text-indigo-600 text-sm">grade</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-none mb-1">Class Grade</p>
+<p class="text-sm font-semibold text-indigo-600 dark:text-indigo-400">B+</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        View Details
+                    </button>
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        Assignment
+                    </button>
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        Attendance
+                    </button>
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        View Grades
+                    </button>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-xs font-bold text-primary tracking-wider uppercase mb-1 block">MAT-305</span>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Advanced Calculus</h2>
+</div>
+<div class="flex items-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                            Active
+                        </span>
+<button class="ml-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-icons">more_vert</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm mr-2 text-slate-400">group</span>
+                        38 Students enrolled
+                    </div>
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm mr-2 text-slate-400">star_outline</span>
+                        4 Credits
+                    </div>
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm mr-2 text-slate-400">schedule</span>
+                        Tue/Thu 02:30 PM
+                    </div>
+</div>
+<div class="flex flex-wrap gap-4 py-4 mb-6 border-y border-slate-100 dark:border-slate-800">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center mr-3">
+<span class="material-icons text-orange-600 text-sm">assignment</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-none mb-1">Submissions</p>
+<p class="text-sm font-semibold">08 Pending</p>
+</div>
+</div>
+<div class="flex items-center ml-auto md:ml-0">
+<div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center mr-3">
+<span class="material-icons text-primary text-sm">how_to_reg</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-none mb-1">Attendance</p>
+<p class="text-sm font-semibold">88% Average</p>
+</div>
+</div>
+<div class="flex items-center ml-auto md:ml-0">
+<div class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/20 flex items-center justify-center mr-3">
+<span class="material-icons text-indigo-600 text-sm">grade</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-none mb-1">Class Grade</p>
+<p class="text-sm font-semibold text-indigo-600 dark:text-indigo-400">A-</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        View Details
+                    </button>
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        Assignment
+                    </button>
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        Attendance
+                    </button>
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        View Grades
+                    </button>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-xs font-bold text-primary tracking-wider uppercase mb-1 block">CS-101</span>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Intro to Programming</h2>
+</div>
+<div class="flex items-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                            Active
+                        </span>
+<button class="ml-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-icons">more_vert</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm mr-2 text-slate-400">group</span>
+                        120 Students enrolled
+                    </div>
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm mr-2 text-slate-400">star_outline</span>
+                        4 Credits
+                    </div>
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm mr-2 text-slate-400">schedule</span>
+                        Fri 09:00 AM
+                    </div>
+</div>
+<div class="flex flex-wrap gap-4 py-4 mb-6 border-y border-slate-100 dark:border-slate-800">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center mr-3">
+<span class="material-icons text-orange-600 text-sm">assignment</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-none mb-1">Submissions</p>
+<p class="text-sm font-semibold">42 Pending</p>
+</div>
+</div>
+<div class="flex items-center ml-auto md:ml-0">
+<div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center mr-3">
+<span class="material-icons text-primary text-sm">how_to_reg</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-none mb-1">Attendance</p>
+<p class="text-sm font-semibold">95% Average</p>
+</div>
+</div>
+<div class="flex items-center ml-auto md:ml-0">
+<div class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/20 flex items-center justify-center mr-3">
+<span class="material-icons text-indigo-600 text-sm">grade</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-none mb-1">Class Grade</p>
+<p class="text-sm font-semibold text-indigo-600 dark:text-indigo-400">B</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        View Details
+                    </button>
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        Assignment
+                    </button>
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        Attendance
+                    </button>
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        View Grades
+                    </button>
+</div>
+</div>
+<!-- Course Card 4 -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-xs font-bold text-primary tracking-wider uppercase mb-1 block">BIO-220</span>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Molecular Biology</h2>
+</div>
+<div class="flex items-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                            Active
+                        </span>
+<button class="ml-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-icons">more_vert</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm mr-2 text-slate-400">group</span>
+                        24 Students enrolled
+                    </div>
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm mr-2 text-slate-400">star_outline</span>
+                        3 Credits
+                    </div>
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm mr-2 text-slate-400">schedule</span>
+                        Wed 04:00 PM
+                    </div>
+</div>
+<div class="flex flex-wrap gap-4 py-4 mb-6 border-y border-slate-100 dark:border-slate-800">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center mr-3">
+<span class="material-icons text-orange-600 text-sm">assignment</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-none mb-1">Submissions</p>
+<p class="text-sm font-semibold">03 Pending</p>
+</div>
+</div>
+<div class="flex items-center ml-auto md:ml-0">
+<div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center mr-3">
+<span class="material-icons text-primary text-sm">how_to_reg</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-none mb-1">Attendance</p>
+<p class="text-sm font-semibold">98% Average</p>
+</div>
+</div>
+<div class="flex items-center ml-auto md:ml-0">
+<div class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/20 flex items-center justify-center mr-3">
+<span class="material-icons text-indigo-600 text-sm">grade</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-none mb-1">Class Grade</p>
+<p class="text-sm font-semibold text-indigo-600 dark:text-indigo-400">A</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        View Details
+                    </button>
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        Assignment
+                    </button>
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        Attendance
+                    </button>
+<button class="px-3 py-2 border border-primary text-primary hover:bg-primary hover:text-white text-xs font-semibold rounded-lg transition-all">
+                        View Grades
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-lg">school</span>
+</div>
+<span class="font-bold text-slate-900 dark:text-white">EduNex LMS</span>
+</div>
+<div class="text-sm text-slate-500 dark:text-slate-400">
+                    © 2026 EduNex Technologies. Teacher Management Portal v4.2.0
+                </div>
+<div class="flex space-x-6">
+<a class="text-slate-400 hover:text-primary transition-colors text-sm" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-sm" href="#">Help Center</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

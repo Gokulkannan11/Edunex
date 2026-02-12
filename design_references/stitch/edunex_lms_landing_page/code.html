@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNex LMS | Learning Reimagined</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2463eb",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "accent-blue": "#3b82f6",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(36, 99, 235, 0.05) 0%, transparent 50%);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #2463eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            padding-bottom: 0.1em;
+            line-height: normal;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<nav class="container mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white">school</span>
+</div>
+<span class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">EduNex</span>
+</div>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium">
+<a class="hover:text-primary transition-colors" href="#features">Features</a>
+<a class="hover:text-primary transition-colors" href="#roles">Solutions</a>
+<a class="hover:text-primary transition-colors" href="#tech">Technology</a>
+<a class="hover:text-primary transition-colors" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Sign in</a>
+<a class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-primary/25" href="#">
+                    Get started
+                </a>
+</div>
+</nav>
+</header>
+<main class="pt-20">
+<section class="relative overflow-hidden py-24 md:py-40 hero-gradient">
+<div class="absolute top-0 -left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 -right-20 w-96 h-96 bg-accent-blue/10 rounded-full blur-3xl"></div>
+<div class="container mx-auto px-6 text-center relative z-10">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-8">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                    Modern Learning Platform
+                </div>
+<h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white leading-[1.2] mb-8 pb-2">
+                    Professional learning <br/>
+<span class="text-gradient italic">reimagined</span>
+</h1>
+<p class="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
+                    Empower your institution with a high-performance LMS designed for the future. Seamlessly manage courses, track student progress, and deliver exceptional education.
+                </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto px-10 py-4 bg-primary text-white font-bold rounded-xl shadow-xl shadow-primary/30 hover:-translate-y-1 transition-all">
+                        Get Started
+                    </button>
+</div>
+</div>
+</section>
+<section class="bg-white dark:bg-slate-900 py-16 border-y border-slate-100 dark:border-slate-800">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+<div>
+<div class="text-4xl font-extrabold text-primary mb-2">500+</div>
+<div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Institutions</div>
+</div>
+<div>
+<div class="text-4xl font-extrabold text-primary mb-2">25+</div>
+<div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Countries</div>
+</div>
+<div>
+<div class="text-4xl font-extrabold text-primary mb-2">80+</div>
+<div class="text-sm font-medium text-slate-500 uppercase tracking-wide">LMS Tools</div>
+</div>
+<div>
+<div class="text-4xl font-extrabold text-primary mb-2">95%</div>
+<div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Satisfaction</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-slate-50 dark:bg-slate-900/50" id="roles">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Tailored Experiences</h2>
+<p class="text-slate-600 dark:text-slate-400">Personalized portals designed for every member of your ecosystem.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-md border border-slate-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-2 transition-all group">
+<div class="w-14 h-14 bg-blue-50 dark:bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-icons text-3xl">person</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Student Portal</h3>
+<ul class="space-y-3 mb-8 text-slate-600 dark:text-slate-400 text-sm">
+<li class="flex items-center gap-2"><span class="material-icons text-primary text-sm">check_circle</span> Interactive Course View</li>
+<li class="flex items-center gap-2"><span class="material-icons text-primary text-sm">check_circle</span> Assignment Tracker</li>
+<li class="flex items-center gap-2"><span class="material-icons text-primary text-sm">check_circle</span> Grade History</li>
+<li class="flex items-center gap-2"><span class="material-icons text-primary text-sm">check_circle</span> Peer Discussions</li>
+</ul>
+<a class="text-primary font-bold flex items-center gap-1 group-hover:gap-3 transition-all" href="#">
+                            Enter Portal <span class="material-icons">arrow_forward</span>
+</a>
+</div>
+<div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-md border border-slate-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-2 transition-all group">
+<div class="w-14 h-14 bg-blue-50 dark:bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-icons text-3xl">psychology</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Teacher Suite</h3>
+<ul class="space-y-3 mb-8 text-slate-600 dark:text-slate-400 text-sm">
+<li class="flex items-center gap-2"><span class="material-icons text-primary text-sm">check_circle</span> AI-Powered Grading</li>
+<li class="flex items-center gap-2"><span class="material-icons text-primary text-sm">check_circle</span> Content Builder</li>
+<li class="flex items-center gap-2"><span class="material-icons text-primary text-sm">check_circle</span> Attendance Automations</li>
+<li class="flex items-center gap-2"><span class="material-icons text-primary text-sm">check_circle</span> Analytics Reports</li>
+</ul>
+<a class="text-primary font-bold flex items-center gap-1 group-hover:gap-3 transition-all" href="#">
+                            Manage Classes <span class="material-icons">arrow_forward</span>
+</a>
+</div>
+<div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-md border border-slate-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-2 transition-all group">
+<div class="w-14 h-14 bg-blue-50 dark:bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-icons text-3xl">settings_suggest</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Administrator</h3>
+<ul class="space-y-3 mb-8 text-slate-600 dark:text-slate-400 text-sm">
+<li class="flex items-center gap-2"><span class="material-icons text-primary text-sm">check_circle</span> System Configuration</li>
+<li class="flex items-center gap-2"><span class="material-icons text-primary text-sm">check_circle</span> User Role Mapping</li>
+<li class="flex items-center gap-2"><span class="material-icons text-primary text-sm">check_circle</span> API &amp; Integrations</li>
+<li class="flex items-center gap-2"><span class="material-icons text-primary text-sm">check_circle</span> Campus Analytics</li>
+</ul>
+<a class="text-primary font-bold flex items-center gap-1 group-hover:gap-3 transition-all" href="#">
+                            Open Console <span class="material-icons">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white dark:bg-background-dark" id="features">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Core Capabilities</h2>
+<p class="text-slate-600 dark:text-slate-400">Everything you need to run a modern digital campus.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="material-icons text-primary text-3xl mb-4">analytics</span>
+<h4 class="text-lg font-bold mb-2">Deep Analytics</h4>
+<p class="text-sm text-slate-500">Real-time tracking of student performance and engagement metrics.</p>
+</div>
+<div class="p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="material-icons text-primary text-3xl mb-4">how_to_reg</span>
+<h4 class="text-lg font-bold mb-2">Attendance</h4>
+<p class="text-sm text-slate-500">Automated geolocation and QR-based attendance tracking systems.</p>
+</div>
+<div class="p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="material-icons text-primary text-3xl mb-4">assignment</span>
+<h4 class="text-lg font-bold mb-2">Assignments</h4>
+<p class="text-sm text-slate-500">Versatile submission formats with integrated plagiarism detection.</p>
+</div>
+<div class="p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="material-icons text-primary text-3xl mb-4">grading</span>
+<h4 class="text-lg font-bold mb-2">Grades</h4>
+<p class="text-sm text-slate-500">Transparent grading workflows with rubrics and automated feedback.</p>
+</div>
+<div class="p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="material-icons text-primary text-3xl mb-4">lock_open</span>
+<h4 class="text-lg font-bold mb-2">Access Control</h4>
+<p class="text-sm text-slate-500">Granular permissions and Single Sign-On (SSO) integration.</p>
+</div>
+<div class="p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="material-icons text-primary text-3xl mb-4">devices</span>
+<h4 class="text-lg font-bold mb-2">Responsive UI</h4>
+<p class="text-sm text-slate-500">Perfect experience on desktops, tablets, and mobile devices.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-slate-50 dark:bg-slate-900/50 overflow-hidden" id="tech">
+<div class="container mx-auto px-6">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-6">Hybrid Data Architecture</h2>
+<p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                            EduNex uses a sophisticated dual-database approach to ensure both high performance and incredible flexibility. We don't settle for one-size-fits-all solutions.
+                        </p>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="shrink-0 w-12 h-12 bg-white dark:bg-slate-800 rounded-lg flex items-center justify-center border border-slate-200 dark:border-slate-700 shadow-sm">
+<span class="material-icons text-blue-600">storage</span>
+</div>
+<div>
+<h5 class="font-bold text-slate-900 dark:text-white">Structured MySQL</h5>
+<p class="text-sm text-slate-500">Handles core academic records, user authentication, and financial data with ACID compliance.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="shrink-0 w-12 h-12 bg-white dark:bg-slate-800 rounded-lg flex items-center justify-center border border-slate-200 dark:border-slate-700 shadow-sm">
+<span class="material-icons text-green-500">data_object</span>
+</div>
+<div>
+<h5 class="font-bold text-slate-900 dark:text-white">Flexible MongoDB</h5>
+<p class="text-sm text-slate-500">Powers content storage, forum posts, and dynamic course materials with rapid scalability.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="bg-slate-900 rounded-2xl p-1 shadow-2xl overflow-hidden">
+<div class="bg-slate-800 border-b border-slate-700 p-4 flex gap-2">
+<div class="w-3 h-3 rounded-full bg-red-500"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+<div class="w-3 h-3 rounded-full bg-green-500"></div>
+</div>
+<div class="p-6 font-mono text-sm text-blue-300">
+<pre><code>{
+  "database_sync": true,
+  "engine": "HybridStore v4.2",
+  "nodes": [
+    { "type": "MySQL", "role": "Relational" },
+    { "type": "MongoDB", "role": "Document" }
+  ],
+  "status": "connected",
+  "latency": "14ms"
+}</code></pre>
+</div>
+</div>
+<div class="absolute -bottom-6 -right-6 bg-white dark:bg-slate-800 p-6 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 hidden md:block">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons">bolt</span>
+</div>
+<div>
+<div class="text-xs text-slate-500 font-bold uppercase">Uptime</div>
+<div class="text-xl font-bold text-slate-900 dark:text-white">99.99%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24">
+<div class="container mx-auto px-6">
+<div class="relative bg-primary rounded-3xl overflow-hidden p-12 md:p-24 text-center">
+<div class="absolute inset-0 bg-gradient-to-br from-primary to-accent-blue opacity-90"></div>
+<div class="relative z-10 max-w-3xl mx-auto">
+<h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8">Ready to Transform Your Institution?</h2>
+<p class="text-white/80 text-lg mb-12">
+                            Join hundreds of schools and universities using EduNex to deliver world-class education. Start your 14-day free trial today.
+                        </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="bg-white text-primary hover:bg-slate-100 font-bold px-10 py-4 rounded-xl transition-all shadow-xl">
+                                Create Account
+                            </button>
+<button class="border-2 border-white/40 text-white hover:bg-white/10 font-bold px-10 py-4 rounded-xl transition-all">
+                                Contact Sales
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-white dark:bg-slate-950 pt-20 pb-10 border-t border-slate-100 dark:border-slate-800">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-12 mb-16">
+<div class="col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-sm">school</span>
+</div>
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">EduNex</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 max-w-xs mb-8">
+                        The world's most intuitive and powerful Learning Management System for modern education.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-icons text-sm">facebook</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-icons text-sm">alternate_email</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-icons text-sm">share</span>
+</a>
+</div>
+</div>
+<div>
+<h6 class="font-bold mb-6">Product</h6>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Features</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Integrations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Changelog</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-bold mb-6">Resources</h6>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Documentation</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Guides</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API Reference</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-bold mb-6">Company</h6>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-10 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-sm text-slate-500 dark:text-slate-400">© 2026 EduNex LMS. All rights reserved.</p>
+<div class="flex gap-8 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Cookie Settings</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import './Register.css';
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -8,8 +9,8 @@ const Register = () => {
         lastName: '',
         email: '',
         password: '',
-        confirmPassword: '',
-        role: 'student'
+        role: 'student',
+        agreeToTerms: false
     });
     const [loading, setLoading] = useState(false);
     const [validationError, setValidationError] = useState('');
@@ -17,8 +18,16 @@ const Register = () => {
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value, type, checked } = e.target;
+        setFormData({
+            ...formData,
+            [name]: type === 'checkbox' ? checked : value
+        });
         setValidationError('');
+    };
+
+    const handleRoleSelect = (role) => {
+        setFormData({ ...formData, role });
     };
 
     const handleSubmit = async (e) => {
@@ -27,13 +36,13 @@ const Register = () => {
         setError(null);
 
         // Validation
-        if (formData.password !== formData.confirmPassword) {
-            setValidationError('Passwords do not match');
+        if (formData.password.length < 8) {
+            setValidationError('Password must be at least 8 characters');
             return;
         }
 
-        if (formData.password.length < 6) {
-            setValidationError('Password must be at least 6 characters');
+        if (!formData.agreeToTerms) {
+            setValidationError('Please agree to the Terms & Conditions');
             return;
         }
 
@@ -55,135 +64,142 @@ const Register = () => {
     };
 
     return (
-        <div className="auth-page">
-            <div className="auth-card" style={{ maxWidth: '480px' }}>
-                <div className="auth-logo">
-                    <h1>🎓 EduNex</h1>
-                    <p className="text-muted" style={{ marginTop: '0.5rem' }}>
-                        Learning Management System
-                    </p>
+        <div className="register-page-exact">
+            <div className="register-container-exact">
+                {/* Logo Section */}
+                <div className="register-logo-section">
+                    <div className="logo-icon-exact">🎓</div>
+                    <h1 className="logo-title-exact">EduNex</h1>
+                    <p className="logo-subtitle-exact">LEARNING MANAGEMENT SYSTEM</p>
                 </div>
 
-                <div className="auth-title">
-                    <h2>Create Account</h2>
-                    <p>Join our learning community</p>
-                </div>
+                {/* Form Section */}
+                <div className="register-form-section">
+                    <h2 className="form-title-exact">Create Account</h2>
+                    <p className="form-subtitle-exact">Join EduNex to start your learning journey</p>
 
-                {(error || validationError) && (
-                    <div className="alert alert-error">
-                        {error || validationError}
-                    </div>
-                )}
+                    {(error || validationError) && (
+                        <div className="error-alert-exact">
+                            {error || validationError}
+                        </div>
+                    )}
 
-                <form onSubmit={handleSubmit}>
-                    <div className="grid grid-cols-2" style={{ gap: '1rem' }}>
-                        <div className="form-group">
-                            <label className="form-label" htmlFor="firstName">First Name</label>
+                    <form onSubmit={handleSubmit} className="register-form-exact">
+                        {/* Name Fields */}
+                        <div className="name-row-exact">
+                            <div className="form-field-exact">
+                                <label htmlFor="firstName">First Name</label>
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="firstName"
+                                    value={formData.firstName}
+                                    onChange={handleChange}
+                                    placeholder="John"
+                                    required
+                                />
+                            </div>
+                            <div className="form-field-exact">
+                                <label htmlFor="lastName">Last Name</label>
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lastName"
+                                    value={formData.lastName}
+                                    onChange={handleChange}
+                                    placeholder="Doe"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        {/* Email */}
+                        <div className="form-field-exact">
+                            <label htmlFor="email">Email Address</label>
                             <input
-                                type="text"
-                                id="firstName"
-                                name="firstName"
-                                className="form-input"
-                                value={formData.firstName}
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
                                 onChange={handleChange}
-                                placeholder="First name"
+                                placeholder="john@example.com"
                                 required
                             />
                         </div>
 
-                        <div className="form-group">
-                            <label className="form-label" htmlFor="lastName">Last Name</label>
+                        {/* Password */}
+                        <div className="form-field-exact">
+                            <label htmlFor="password">
+                                Password
+                                <span className="password-hint">MIN. 8 CHARACTERS</span>
+                            </label>
                             <input
-                                type="text"
-                                id="lastName"
-                                name="lastName"
-                                className="form-input"
-                                value={formData.lastName}
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={formData.password}
                                 onChange={handleChange}
-                                placeholder="Last name"
+                                placeholder="••••••••"
                                 required
                             />
                         </div>
-                    </div>
 
-                    <div className="form-group">
-                        <label className="form-label" htmlFor="email">Email Address</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            className="form-input"
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder="Enter your email"
-                            required
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label className="form-label" htmlFor="role">I am a</label>
-                        <div className="flex gap-2">
-                            {['student', 'teacher'].map((role) => (
+                        {/* Role Selection */}
+                        <div className="form-field-exact">
+                            <label>I am a...</label>
+                            <div className="role-buttons-exact">
                                 <button
-                                    key={role}
                                     type="button"
-                                    className="btn"
-                                    style={{
-                                        flex: 1,
-                                        background: formData.role === role
-                                            ? role === 'student' ? 'var(--student-color)' : 'var(--teacher-color)'
-                                            : 'var(--gray-100)',
-                                        color: formData.role === role ? 'white' : 'var(--gray-600)',
-                                        textTransform: 'capitalize'
-                                    }}
-                                    onClick={() => setFormData({ ...formData, role })}
+                                    className={`role-btn-exact ${formData.role === 'student' ? 'active' : ''}`}
+                                    onClick={() => handleRoleSelect('student')}
                                 >
-                                    {role}
+                                    Student
                                 </button>
-                            ))}
+                                <button
+                                    type="button"
+                                    className={`role-btn-exact ${formData.role === 'teacher' ? 'active' : ''}`}
+                                    onClick={() => handleRoleSelect('teacher')}
+                                >
+                                    Teacher
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`role-btn-exact ${formData.role === 'admin' ? 'active' : ''}`}
+                                    onClick={() => handleRoleSelect('admin')}
+                                >
+                                    Admin
+                                </button>
+                            </div>
                         </div>
+
+                        {/* Terms Checkbox */}
+                        <div className="terms-checkbox-exact">
+                            <input
+                                type="checkbox"
+                                id="agreeToTerms"
+                                name="agreeToTerms"
+                                checked={formData.agreeToTerms}
+                                onChange={handleChange}
+                            />
+                            <label htmlFor="agreeToTerms">
+                                I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        {/* Submit Button */}
+                        <button
+                            type="submit"
+                            className="submit-btn-exact"
+                            disabled={loading}
+                        >
+                            {loading ? 'Creating Account...' : 'Create Account →'}
+                        </button>
+                    </form>
+
+                    {/* Footer Link */}
+                    <div className="register-footer-exact">
+                        Already have an account? <Link to="/login">Sign in</Link>
                     </div>
-
-                    <div className="form-group">
-                        <label className="form-label" htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            className="form-input"
-                            value={formData.password}
-                            onChange={handleChange}
-                            placeholder="Create a password"
-                            required
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label className="form-label" htmlFor="confirmPassword">Confirm Password</label>
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            className="form-input"
-                            value={formData.confirmPassword}
-                            onChange={handleChange}
-                            placeholder="Confirm your password"
-                            required
-                        />
-                    </div>
-
-                    <button
-                        type="submit"
-                        className="btn btn-primary btn-lg"
-                        style={{ width: '100%', marginTop: '0.5rem' }}
-                        disabled={loading}
-                    >
-                        {loading ? 'Creating Account...' : 'Create Account'}
-                    </button>
-                </form>
-
-                <div className="auth-footer">
-                    Already have an account? <Link to="/login">Sign in</Link>
                 </div>
             </div>
         </div>

@@ -1,0 +1,173 @@
+/* Student Grades - Stitch Design */
+
+.grades-page-stitch {
+    padding: 48px 64px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #F8FAFC;
+    min-height: 100vh;
+}
+
+.gpa-card-stitch {
+    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    color: white;
+    margin-bottom: 32px;
+}
+
+.gpa-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.gpa-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.gpa-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.filter-section-stitch {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.filter-btn-stitch {
+    padding: 10px 20px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6B7280;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn-stitch:hover {
+    border-color: #7C3AED;
+    color: #7C3AED;
+}
+
+.filter-btn-stitch.active {
+    background: #7C3AED;
+    border-color: #7C3AED;
+    color: white;
+}
+
+.grades-table-stitch {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table-header-grades {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 16px 24px;
+    background: #F9FAFB;
+    border-bottom: 1px solid #F3F4F6;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #9CA3AF;
+    text-transform: uppercase;
+}
+
+.table-row-grades {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid #F3F4F6;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.table-row-grades:last-child {
+    border-bottom: none;
+}
+
+.table-row-grades:hover {
+    background: #FAFAFA;
+}
+
+.course-code-small {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #7C3AED;
+    margin-bottom: 4px;
+}
+
+.course-title-small {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #9CA3AF;
+}
+
+.assignment-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #374151;
+}
+
+.score-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.grade-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.grade-badge.a,
+.grade-badge.aplus {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.grade-badge.aminus,
+.grade-badge.bplus {
+    background: #DBEAFE;
+    color: #1E40AF;
+}
+
+.date-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #6B7280;
+}
+
+@media (max-width: 768px) {
+    .grades-page-stitch {
+        padding: 24px;
+    }
+
+    .table-header-grades,
+    .table-row-grades {
+        grid-template-columns: 1fr;
+    }
+}

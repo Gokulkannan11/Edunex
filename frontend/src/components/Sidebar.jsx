@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import './Sidebar.css';
 
 const Sidebar = () => {
     const { user, logout } = useAuth();
@@ -10,144 +11,118 @@ const Sidebar = () => {
         navigate('/login');
     };
 
-    // Menu items based on role
-    const menuItems = {
-        student: [
-            { path: '/student', label: 'Dashboard', icon: '🏠' },
-            { path: '/student/courses', label: 'My Courses', icon: '📚' },
-            { path: '/student/enroll', label: 'Enroll Course', icon: '➕' },
-            { path: '/student/assignments', label: 'Assignments', icon: '📝' },
-            { path: '/student/grades', label: 'Grades', icon: '📊' },
-        ],
-        teacher: [
-            { path: '/teacher', label: 'Dashboard', icon: '🏠' },
-            { path: '/teacher/courses', label: 'My Courses', icon: '📚' },
-            { path: '/teacher/assignments/create', label: 'Create Assignment', icon: '➕' },
-            { path: '/teacher/attendance', label: 'Mark Attendance', icon: '✅' },
-        ],
-        admin: [
-            { path: '/admin', label: 'Dashboard', icon: '🏠' },
-            { path: '/admin/users', label: 'User Management', icon: '👥' },
-            { path: '/admin/courses', label: 'Course Management', icon: '📚' },
-        ]
+    // Multi-role navigation structure (as per Stitch Admin Dashboard design)
+    const allMenuSections = {
+        studentPortal: {
+            title: 'STUDENT PORTAL',
+            items: [
+                { path: '/student', label: 'Dashboard', icon: '📊', roles: ['student', 'admin'] },
+                { path: '/student/courses', label: 'Courses', icon: '📚', roles: ['student', 'admin'] },
+                { path: '/student/assignments', label: 'Assignments', icon: '📝', roles: ['student', 'admin'] },
+                { path: '/student/grades', label: 'Grades', icon: '⭐', roles: ['student', 'admin'] },
+                { path: '/student/enroll', label: 'Enroll', icon: '➕', roles: ['student', 'admin'] },
+            ]
+        },
+        teacherTools: {
+            title: 'TEACHER TOOLS',
+            items: [
+                { path: '/teacher', label: 'Class Dashboard', icon: '📈', roles: ['teacher', 'admin'] },
+                { path: '/teacher/assignments/create', label: 'Create Assignment', icon: '✏️', roles: ['teacher', 'admin'] },
+                { path: '/teacher/attendance', label: 'Attendance', icon: '✅', roles: ['teacher', 'admin'] },
+            ]
+        },
+        administration: {
+            title: 'ADMINISTRATION',
+            items: [
+                { path: '/admin', label: 'Dashboard', icon: '🎯', roles: ['admin'] },
+                { path: '/admin/users', label: 'Users', icon: '👥', roles: ['admin'] },
+                { path: '/admin/courses', label: 'Courses', icon: '📚', roles: ['admin'] },
+                { path: '/admin/reports', label: 'Reports', icon: '📄', roles: ['admin'] },
+            ]
+        }
     };
 
-    const currentMenu = menuItems[user?.role] || [];
+    // Filter sections based on user role
+    const getVisibleSections = () => {
+        const sections = [];
 
-    const roleColors = {
-        student: 'var(--student-color)',
-        teacher: 'var(--teacher-color)',
-        admin: 'var(--admin-color)'
+        Object.entries(allMenuSections).forEach(([key, section]) => {
+            const visibleItems = section.items.filter(item =>
+                item.roles.includes(user?.role)
+            );
+
+            if (visibleItems.length > 0) {
+                sections.push({
+                    ...section,
+                    items: visibleItems
+                });
+            }
+        });
+
+        return sections;
+    };
+
+    const visibleSections = getVisibleSections();
+
+    // Get user display name (Indian name format)
+    const getUserDisplayName = () => {
+        if (!user) return '';
+        return `${user.firstName} ${user.lastName}`;
+    };
+
+    // Get user ID
+    const getUserId = () => {
+        if (!user) return '';
+        // Format: ID: 248012 (from Stitch design)
+        return user.userId || user.id || '248012';
     };
 
     return (
-        <aside className="sidebar">
-            {/* Logo */}
-            <div style={{ marginBottom: '2rem' }}>
-                <h1 style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '1.5rem',
-                    color: 'var(--white)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem'
-                }}>
-                    🎓 EduNex
-                </h1>
+        <aside className="sidebar-new">
+            {/* Logo Section */}
+            <div className="sidebar-logo">
+                <div className="logo-icon">🎓</div>
+                <span className="logo-text">EduNex</span>
             </div>
 
-            {/* User Info */}
-            <div style={{
-                padding: '1rem',
-                background: 'rgba(255,255,255,0.1)',
-                borderRadius: 'var(--radius-md)',
-                marginBottom: '2rem'
-            }}>
-                <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.75rem',
-                    marginBottom: '0.5rem'
-                }}>
-                    <div style={{
-                        width: '40px',
-                        height: '40px',
-                        borderRadius: '50%',
-                        background: roleColors[user?.role],
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontWeight: '600',
-                        color: 'white'
-                    }}>
-                        {user?.firstName?.[0]}{user?.lastName?.[0]}
+            {/* Navigation Sections */}
+            <nav className="sidebar-nav">
+                {visibleSections.map((section, index) => (
+                    <div key={index} className="nav-section">
+                        <div className="nav-section-title">{section.title}</div>
+                        {section.items.map((item) => (
+                            <NavLink
+                                key={item.path}
+                                to={item.path}
+                                end={item.path === `/${user?.role}` || item.path === '/admin'}
+                                className={({ isActive }) =>
+                                    `nav-item ${isActive ? 'nav-item-active' : ''}`
+                                }
+                            >
+                                <span className="nav-icon">{item.icon}</span>
+                                <span className="nav-label">{item.label}</span>
+                            </NavLink>
+                        ))}
                     </div>
-                    <div>
-                        <div style={{ fontWeight: '500', color: 'var(--white)' }}>
-                            {user?.firstName} {user?.lastName}
-                        </div>
-                        <div style={{
-                            fontSize: '0.75rem',
-                            color: 'var(--gray-400)',
-                            textTransform: 'capitalize'
-                        }}>
-                            {user?.role}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Navigation */}
-            <nav>
-                {currentMenu.map((item) => (
-                    <NavLink
-                        key={item.path}
-                        to={item.path}
-                        end={item.path === `/${user?.role}`}
-                        style={({ isActive }) => ({
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.75rem',
-                            padding: '0.75rem 1rem',
-                            color: isActive ? 'var(--white)' : 'var(--gray-400)',
-                            background: isActive ? 'var(--primary-600)' : 'transparent',
-                            borderRadius: 'var(--radius-md)',
-                            marginBottom: '0.25rem',
-                            textDecoration: 'none',
-                            transition: 'all 0.2s ease'
-                        })}
-                    >
-                        <span>{item.icon}</span>
-                        <span>{item.label}</span>
-                    </NavLink>
                 ))}
             </nav>
 
-            {/* Logout */}
-            <div style={{
-                position: 'absolute',
-                bottom: '2rem',
-                left: '1.5rem',
-                right: '1.5rem'
-            }}>
-                <button
-                    onClick={handleLogout}
-                    style={{
-                        width: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '0.5rem',
-                        padding: '0.75rem',
-                        background: 'rgba(255,255,255,0.1)',
-                        border: 'none',
-                        borderRadius: 'var(--radius-md)',
-                        color: 'var(--gray-300)',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease'
-                    }}
-                >
-                    🚪 Logout
+            {/* User Profile Section (Bottom) */}
+            <div className="sidebar-user">
+                <div className="user-info">
+                    <div className="user-avatar">
+                        {user?.firstName?.[0]}{user?.lastName?.[0]}
+                    </div>
+                    <div className="user-details">
+                        <div className="user-name">{getUserDisplayName()}</div>
+                        <div className="user-id">ID: {getUserId()}</div>
+                    </div>
+                </div>
+
+                {/* Logout Button */}
+                <button onClick={handleLogout} className="logout-btn">
+                    <span className="logout-icon">🚪</span>
+                    <span>Logout</span>
                 </button>
             </div>
         </aside>

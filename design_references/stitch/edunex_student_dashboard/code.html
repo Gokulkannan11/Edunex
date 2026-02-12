@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#6324eb",
+              "background-light": "#f6f6f8",
+              "background-dark": "#161121",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<title>EduNex Student Dashboard</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-primary/10 hidden md:flex flex-col">
+<div class="p-6">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-lg">school</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-primary">EduNex</span>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium" href="#">
+<span class="material-icons text-xl">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-icons text-xl">book</span>
+                    Courses
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-icons text-xl">assignment</span>
+                    Assignments
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-icons text-xl">grade</span>
+                    Grades
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-icons text-xl">settings</span>
+                    Settings
+                </a>
+</nav>
+<div class="p-4 border-t border-primary/5">
+<div class="flex items-center gap-3 p-2">
+<img alt="User Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="Student profile portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADHjo5cGzDPt3MEcyU3lfA1GUlJy45hXLQqUDZ6zZ6GmujiArhCbK9ypARdz5e5WKPKYUGt1ZmYN5hXJkBozThU3PgxFzb2hnLNPBDzjaFKAprxfCRa19cDD20_bRQOTwlvCsNx6rIhCyu4Qw-CX6zkthY4Q2S4tEP7NbR7dqW3Glno_GC64AZflLCPArm1r9vI0ba-lyc6Z_Ab-pUJ9ziwD_hwVkwVdPKZSp8gLKJSJnt_ys26iybh30_zB60pIKSWew2HH_Uo7Yc"/>
+<div>
+<p class="text-sm font-semibold">Alex Johnson</p>
+<p class="text-xs text-slate-400">ID: 249012</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-h-screen overflow-y-auto">
+<!-- Header -->
+<header class="bg-white dark:bg-slate-900/50 border-b border-primary/5 px-8 py-8">
+<div class="flex justify-between items-center">
+<div>
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white">Welcome back, Alex! 👋</h1>
+<p class="text-slate-500 mt-1">Here's what's happening with your academic progress today.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-500 relative">
+<span class="material-icons">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-800"></div>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-400">Term: Spring 2024</span>
+</div>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border-t-4 border-primary">
+<p class="text-sm font-medium text-slate-400">Enrolled Courses</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-3xl font-bold">12</h3>
+<span class="text-xs font-semibold px-2 py-1 bg-primary/10 text-primary rounded">+2 this term</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border-t-4 border-orange-400">
+<p class="text-sm font-medium text-slate-400">Pending Assignments</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-3xl font-bold text-orange-400">04</h3>
+<span class="material-icons text-orange-400/20">schedule</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border-t-4 border-emerald-400">
+<p class="text-sm font-medium text-slate-400">Attendance Rate</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-3xl font-bold text-emerald-400">94%</h3>
+<span class="material-icons text-emerald-400/20">verified_user</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border-t-4 border-blue-400">
+<p class="text-sm font-medium text-slate-400">Average Grade</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-3xl font-bold text-blue-400">3.8</h3>
+<span class="text-xs font-semibold px-2 py-1 bg-blue-400/10 text-blue-400 rounded">Top 5%</span>
+</div>
+</div>
+</div>
+<!-- Main Section: Upcoming Assignments -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-primary/5">
+<div class="p-6 border-b border-primary/5 flex justify-between items-center">
+<h2 class="text-xl font-bold">Upcoming Assignments</h2>
+<button class="text-sm text-primary font-medium hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Title</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Type</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Due Date</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Max Score</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<p class="font-medium">Advanced Calculus - Week 4</p>
+<p class="text-xs text-slate-400">Unit 2: Differentiation</p>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 text-xs font-bold rounded-full bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400">Exam</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Oct 24, 2024</td>
+<td class="px-6 py-4 text-sm font-semibold">100</td>
+<td class="px-6 py-4 text-right">
+<button class="px-4 py-1.5 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary/90">Details</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<p class="font-medium">UX Design Principles</p>
+<p class="text-xs text-slate-400">Interaction Design Case Study</p>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">Project</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Oct 28, 2024</td>
+<td class="px-6 py-4 text-sm font-semibold">50</td>
+<td class="px-6 py-4 text-right">
+<button class="px-4 py-1.5 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary/90">Details</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<p class="font-medium">Macroeconomics Quiz</p>
+<p class="text-xs text-slate-400">Chapter 5: Inflation Patterns</p>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 text-xs font-bold rounded-full bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400">Homework</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Oct 30, 2024</td>
+<td class="px-6 py-4 text-sm font-semibold">20</td>
+<td class="px-6 py-4 text-right">
+<button class="px-4 py-1.5 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary/90">Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Bottom Row -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Attendance Summary -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-primary/5">
+<h2 class="text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-icons text-primary">calendar_today</span>
+                            Attendance Summary
+                        </h2>
+<div class="flex items-center justify-around py-4">
+<div class="text-center">
+<div class="w-20 h-20 rounded-full border-4 border-emerald-400 flex items-center justify-center mb-2">
+<span class="text-2xl font-bold text-emerald-500">45</span>
+</div>
+<p class="text-sm font-medium text-slate-500 uppercase">Present</p>
+</div>
+<div class="w-[1px] h-16 bg-slate-100 dark:bg-slate-800"></div>
+<div class="text-center">
+<div class="w-20 h-20 rounded-full border-4 border-red-400 flex items-center justify-center mb-2">
+<span class="text-2xl font-bold text-red-500">03</span>
+</div>
+<p class="text-sm font-medium text-slate-500 uppercase">Absent</p>
+</div>
+</div>
+<div class="mt-6 p-4 bg-emerald-50 dark:bg-emerald-900/10 rounded-lg">
+<p class="text-xs text-emerald-700 dark:text-emerald-400 font-medium">Your attendance is within the top percentile for your cohort. Keep it up!</p>
+</div>
+</div>
+<!-- Quick Tip Card -->
+<div class="bg-primary/5 dark:bg-primary/10 p-8 rounded-xl border border-primary/10 relative overflow-hidden flex flex-col justify-center">
+<div class="relative z-10">
+<div class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center mb-4">
+<span class="material-icons">tips_and_updates</span>
+</div>
+<h2 class="text-xl font-bold text-primary mb-2">Quick Tip</h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                                Did you know you can sync your EduNex academic calendar with your Google Calendar or Outlook? Just head over to the <span class="font-bold">Settings</span> panel to get your unique sync URL!
+                            </p>
+<a class="inline-flex items-center text-sm font-bold text-primary hover:gap-2 transition-all" href="#">
+                                Go to Settings <span class="material-icons text-sm ml-1">chevron_right</span>
+</a>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-8 -bottom-8 opacity-10">
+<span class="material-icons text-[120px] text-primary">auto_awesome</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

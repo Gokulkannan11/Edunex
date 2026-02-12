@@ -1,0 +1,577 @@
+/* ============================================
+   Teacher Dashboard - Stitch Design (Exact Match)
+   ============================================ */
+
+.teacher-dashboard-stitch {
+    padding: 48px 64px;
+    max-width: 1800px;
+    margin: 0 auto;
+    background: #F8FAFC;
+    min-height: 100vh;
+}
+
+/* Header */
+.dashboard-header-teacher {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.dashboard-title-teacher {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+}
+
+.dashboard-subtitle-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #6B7280;
+    margin: 0;
+}
+
+.datetime-badge-teacher {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+}
+
+.bell-icon-teacher {
+    font-size: 18px;
+}
+
+.date-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.time-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #9CA3AF;
+}
+
+/* Quick Actions */
+.quick-actions-teacher {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.action-btn-teacher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.action-btn-teacher.primary {
+    background: #2563EB;
+    color: white;
+    border: none;
+}
+
+.action-btn-teacher.primary:hover {
+    background: #1D4ED8;
+    transform: translateY(-1px);
+}
+
+.action-btn-teacher.secondary {
+    background: white;
+    color: #374151;
+    border: 1px solid #E5E7EB;
+}
+
+.action-btn-teacher.secondary:hover {
+    border-color: #2563EB;
+    color: #2563EB;
+}
+
+/* Stats Grid */
+.stats-grid-teacher {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.stat-card-teacher {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    border-left: 4px solid;
+    transition: all 0.2s ease;
+}
+
+.stat-card-teacher:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card-teacher.blue {
+    border-left-color: #2563EB;
+}
+
+.stat-card-teacher.teal {
+    border-left-color: #14B8A6;
+}
+
+.stat-card-teacher.orange {
+    border-left-color: #F59E0B;
+}
+
+.stat-card-teacher.purple {
+    border-left-color: #7C3AED;
+}
+
+.stat-label-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #9CA3AF;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.stat-value-teacher {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #1A1A1A;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-meta-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #6B7280;
+    font-weight: 500;
+}
+
+.stat-meta-teacher.success {
+    color: #10B981;
+}
+
+.stat-meta-teacher.warning {
+    color: #F59E0B;
+}
+
+/* Main Content - 2 Column */
+.main-content-teacher {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+.left-column-teacher {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.right-column-teacher {
+    position: sticky;
+    top: 24px;
+    height: fit-content;
+}
+
+/* Section Headers */
+.section-teacher {
+    margin-bottom: 0;
+}
+
+.section-header-teacher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header-teacher h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0;
+}
+
+.view-all-link-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2563EB;
+    text-decoration: none;
+}
+
+.view-all-link-teacher:hover {
+    color: #1D4ED8;
+}
+
+.date-badge-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #9CA3AF;
+}
+
+/* Course Cards */
+.courses-grid-teacher {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.course-card-teacher {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s ease;
+}
+
+.course-card-teacher:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.course-header-teacher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.course-code-teacher {
+    padding: 6px 12px;
+    background: #DBEAFE;
+    color: #1E40AF;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.student-count-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #6B7280;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.avatars-teacher {
+    font-size: 14px;
+}
+
+.course-title-teacher {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0 0 16px 0;
+}
+
+.activity-box-teacher {
+    background: #F9FAFB;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.activity-label-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: #9CA3AF;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.activity-text-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.5;
+}
+
+.course-meta-teacher {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #6B7280;
+}
+
+.course-actions-teacher {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-course-teacher {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-course-teacher.primary {
+    background: #2563EB;
+    color: white;
+}
+
+.btn-course-teacher.primary:hover {
+    background: #1D4ED8;
+}
+
+.btn-course-teacher.secondary {
+    background: white;
+    color: #374151;
+    border: 1px solid #E5E7EB;
+}
+
+.btn-course-teacher.secondary:hover {
+    border-color: #2563EB;
+    color: #2563EB;
+}
+
+/* Upcoming Classes */
+.classes-list-teacher {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.class-item-teacher {
+    display: grid;
+    grid-template-columns: 100px 20px 1fr auto;
+    gap: 16px;
+    padding: 20px;
+    border-bottom: 1px solid #F3F4F6;
+    align-items: center;
+}
+
+.class-item-teacher:last-child {
+    border-bottom: none;
+}
+
+.class-time-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.class-dot-teacher {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.class-dot-teacher.completed {
+    background: #10B981;
+}
+
+.class-dot-teacher.live-soon {
+    background: #F59E0B;
+}
+
+.class-dot-teacher.scheduled {
+    background: #9CA3AF;
+}
+
+.class-details-teacher {
+    flex: 1;
+}
+
+.class-name-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 4px;
+}
+
+.class-location-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #9CA3AF;
+}
+
+.class-status-teacher {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.class-status-teacher.completed {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.class-status-teacher.live-soon {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.class-status-teacher.scheduled {
+    background: #F3F4F6;
+    color: #6B7280;
+}
+
+/* Recent Student Activity */
+.activity-section-teacher {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.activity-list-teacher {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.activity-item-teacher {
+    display: flex;
+    gap: 12px;
+}
+
+.activity-avatar-teacher {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.activity-content-teacher {
+    flex: 1;
+}
+
+.activity-name-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 4px;
+}
+
+.activity-action-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 4px;
+}
+
+.activity-time-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #9CA3AF;
+    margin-bottom: 8px;
+}
+
+.activity-score-teacher {
+    display: inline-block;
+    padding: 4px 8px;
+    background: #D1FAE5;
+    color: #065F46;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.review-link-teacher {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2563EB;
+    text-decoration: none;
+}
+
+.review-link-teacher:hover {
+    color: #1D4ED8;
+}
+
+.show-all-activity-teacher {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6B7280;
+    text-decoration: none;
+    border-top: 1px solid #F3F4F6;
+    margin-top: 12px;
+    padding-top: 20px;
+}
+
+.show-all-activity-teacher:hover {
+    color: #2563EB;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+    .courses-grid-teacher {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1200px) {
+    .main-content-teacher {
+        grid-template-columns: 1fr;
+    }
+
+    .right-column-teacher {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .teacher-dashboard-stitch {
+        padding: 24px;
+    }
+
+    .stats-grid-teacher {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-actions-teacher {
+        flex-direction: column;
+    }
+}

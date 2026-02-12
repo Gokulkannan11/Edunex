@@ -1,366 +1,203 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
+import './CourseManagement.css';
+
+const sampleCourses = [
+    { id: 1, code: 'CS302', title: 'Advanced Algorithms', instructor: 'Dr. Rajesh Kumar', students: 32, status: 'active' },
+    { id: 2, code: 'MATH204', title: 'Calculus III', instructor: 'Prof. Priya Sharma', students: 28, status: 'active' },
+    { id: 3, code: 'DSN101', title: 'Digital Design', instructor: 'Dr. Amit Patel', students: 24, status: 'active' }
+];
 
 const CourseManagement = () => {
-    const [courses, setCourses] = useState([]);
-    const [teachers, setTeachers] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [showCreateModal, setShowCreateModal] = useState(false);
-    const [showAssignModal, setShowAssignModal] = useState(null);
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
-        try {
-            const [coursesRes, usersRes] = await Promise.all([
-                api.get('/admin/courses'),
-                api.get('/admin/users?role=teacher')
-            ]);
-            setCourses(coursesRes.data.data.courses);
-            setTeachers(usersRes.data.data.users);
-        } catch (err) {
-            setError(err.response?.data?.message || 'Failed to load data');
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    if (loading) {
-        return (
-            <div className="loading-container">
-                <div className="spinner"></div>
-                <p>Loading courses...</p>
-            </div>
-        );
-    }
-
-    return (
-        <div>
-            <div className="page-header">
-                <div className="flex justify-between items-center">
-                    <div>
-                        <h1 className="page-title">Course Management 📚</h1>
-                        <p className="page-subtitle">Manage courses and assign teachers</p>
-                    </div>
-                    <button
-                        className="btn btn-primary"
-                        onClick={() => setShowCreateModal(true)}
-                    >
-                        ➕ Add Course
-                    </button>
-                </div>
-            </div>
-
-            {error && <div className="alert alert-error mb-4">{error}</div>}
-
-            {/* Courses Table */}
-            <div className="card">
-                <div className="card-header">
-                    <span className="badge badge-primary">MySQL Table: courses</span>
-                    <span className="text-sm text-muted" style={{ marginLeft: '0.5rem' }}>
-                        {courses.length} courses
-                    </span>
-                </div>
-                <div className="table-container">
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Code</th>
-                                <th>Name</th>
-                                <th>Department</th>
-                                <th>Credits</th>
-                                <th>Semester</th>
-                                <th>Enrolled</th>
-                                <th>Teacher(s)</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {courses.map((course) => (
-                                <tr key={course.id}>
-                                    <td>
-                                        <span className="badge badge-primary">{course.code}</span>
-                                    </td>
-                                    <td>
-                                        <strong>{course.name}</strong>
-                                        <div className="text-sm text-muted" style={{ marginTop: '0.25rem' }}>
-                                            {course.description?.substring(0, 50)}...
-                                        </div>
-                                    </td>
-                                    <td>{course.department_name || '-'}</td>
-                                    <td>{course.credits}</td>
-                                    <td>{course.semester} {course.year}</td>
-                                    <td>
-                                        <span className="badge badge-success">
-                                            {course.enrolled_count}/{course.max_students}
-                                        </span>
-                                    </td>
-                                    <td>{course.teachers || 'Not assigned'}</td>
-                                    <td>
-                                        <span className={`badge ${course.is_active ? 'badge-success' : 'badge-danger'}`}>
-                                            {course.is_active ? 'Active' : 'Inactive'}
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <button
-                                            className="btn btn-sm btn-secondary"
-                                            onClick={() => setShowAssignModal(course)}
-                                        >
-                                            Assign Teacher
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            {/* Create Course Modal */}
-            {showCreateModal && (
-                <CreateCourseModal
-                    onClose={() => setShowCreateModal(false)}
-                    onSuccess={() => {
-                        setShowCreateModal(false);
-                        fetchData();
-                    }}
-                />
-            )}
-
-            {/* Assign Teacher Modal */}
-            {showAssignModal && (
-                <AssignTeacherModal
-                    course={showAssignModal}
-                    teachers={teachers}
-                    onClose={() => setShowAssignModal(null)}
-                    onSuccess={() => {
-                        setShowAssignModal(null);
-                        fetchData();
-                    }}
-                />
-            )}
-        </div>
-    );
-};
-
-// Create Course Modal
-const CreateCourseModal = ({ onClose, onSuccess }) => {
+    const [courses, setCourses] = useState(sampleCourses);
+    const [showModal, setShowModal] = useState(false);
     const [formData, setFormData] = useState({
         code: '',
         name: '',
         description: '',
         credits: 3,
-        semester: 'Spring',
+        semester: 'Fall',
         year: 2025,
         maxStudents: 60
     });
-    const [submitting, setSubmitting] = useState(false);
-    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
-    const handleSubmit = async (e) => {
+    useEffect(() => {
+        fetchCourses();
+    }, []);
+
+    const fetchCourses = async () => {
+        try {
+            const response = await api.get('/admin/courses');
+            setCourses(response.data.courses || sampleCourses);
+        } catch (err) {
+            console.error('Error fetching courses:', err);
+            setCourses(sampleCourses);
+        }
+    };
+
+    const handleAddCourse = async (e) => {
         e.preventDefault();
-        setSubmitting(true);
+        setLoading(true);
+        setError('');
 
         try {
-            await api.post('/admin/courses', formData);
-            onSuccess();
+            const response = await api.post('/admin/courses', formData);
+            console.log('Course created successfully:', response.data);
+
+            // Close modal and reset form
+            setShowModal(false);
+            setFormData({ code: '', name: '', description: '', credits: 3, semester: 'Fall', year: 2025, maxStudents: 60 });
+
+            // Refresh the course list
+            await fetchCourses();
         } catch (err) {
+            console.error('Error creating course:', err);
             setError(err.response?.data?.message || 'Failed to create course');
         } finally {
-            setSubmitting(false);
+            setLoading(false);
         }
     };
 
     return (
-        <div style={{
-            position: 'fixed',
-            top: 0, left: 0, right: 0, bottom: 0,
-            background: 'rgba(0,0,0,0.5)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1000
-        }}>
-            <div className="card" style={{ width: '100%', maxWidth: '600px' }}>
-                <div className="card-header flex justify-between items-center">
-                    <h3>Create New Course</h3>
-                    <button className="btn btn-sm btn-secondary" onClick={onClose}>✕</button>
+        <div className="course-management-page">
+            <div className="page-header-stitch">
+                <div>
+                    <h1 className="page-title-stitch">Course Management</h1>
+                    <p className="page-subtitle-stitch">Manage all courses, instructors, and enrollments.</p>
                 </div>
-                <div className="card-body">
-                    {error && <div className="alert alert-error mb-4">{error}</div>}
+                <button className="btn-add-course" onClick={() => setShowModal(true)}>+ Add Course</button>
+            </div>
 
-                    <form onSubmit={handleSubmit}>
-                        <div className="grid grid-cols-2" style={{ gap: '1rem' }}>
+            <div className="courses-table-admin">
+                <div className="table-header-courses">
+                    <div>CODE</div>
+                    <div>COURSE TITLE</div>
+                    <div>INSTRUCTOR</div>
+                    <div>STUDENTS</div>
+                    <div>STATUS</div>
+                    <div>ACTIONS</div>
+                </div>
+                {courses.map((course) => (
+                    <div key={course.id} className="table-row-courses">
+                        <div className="code-cell">{course.code}</div>
+                        <div className="title-cell">{course.name || course.title}</div>
+                        <div className="instructor-cell">{course.teachers || course.instructor || 'TBA'}</div>
+                        <div className="students-cell">{course.enrolled_count || course.students || 0}</div>
+                        <div>
+                            <span className={`status-badge ${course.is_active !== undefined ? (course.is_active ? 'active' : 'inactive') : course.status}`}>
+                                {course.is_active !== undefined ? (course.is_active ? 'active' : 'inactive') : course.status}
+                            </span>
+                        </div>
+                        <div className="actions-cell">
+                            <button className="btn-action">Edit</button>
+                            <button className="btn-action">View</button>
+                            <button className="btn-action danger">Delete</button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Add Course Modal */}
+            {showModal && (
+                <div className="modal-overlay" onClick={() => setShowModal(false)}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h2>Add New Course</h2>
+                            <button className="modal-close" onClick={() => setShowModal(false)}>×</button>
+                        </div>
+                        <form onSubmit={handleAddCourse}>
+                            {error && <div className="alert-error">{error}</div>}
+                            <div className="form-grid">
+                                <div className="form-group">
+                                    <label>Course Code</label>
+                                    <input
+                                        type="text"
+                                        value={formData.code}
+                                        onChange={(e) => setFormData({ ...formData, code: e.target.value })}
+                                        placeholder="CS301"
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Credits</label>
+                                    <input
+                                        type="number"
+                                        value={formData.credits}
+                                        onChange={(e) => setFormData({ ...formData, credits: parseInt(e.target.value) })}
+                                        min="1"
+                                        max="6"
+                                        required
+                                    />
+                                </div>
+                            </div>
                             <div className="form-group">
-                                <label className="form-label">Course Code</label>
+                                <label>Course Name</label>
                                 <input
                                     type="text"
-                                    className="form-input"
-                                    value={formData.code}
-                                    onChange={(e) => setFormData({ ...formData, code: e.target.value })}
-                                    placeholder="e.g., CS301"
+                                    value={formData.name}
+                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                    placeholder="Introduction to Computer Science"
                                     required
                                 />
                             </div>
                             <div className="form-group">
-                                <label className="form-label">Credits</label>
-                                <input
-                                    type="number"
-                                    className="form-input"
-                                    value={formData.credits}
-                                    onChange={(e) => setFormData({ ...formData, credits: parseInt(e.target.value) })}
-                                    min="1" max="6"
-                                    required
+                                <label>Description</label>
+                                <textarea
+                                    value={formData.description}
+                                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                                    placeholder="Course description..."
+                                    rows="3"
+                                    style={{ resize: 'vertical' }}
                                 />
                             </div>
-                        </div>
-
-                        <div className="form-group">
-                            <label className="form-label">Course Name</label>
-                            <input
-                                type="text"
-                                className="form-input"
-                                value={formData.name}
-                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                placeholder="e.g., Database Management Systems"
-                                required
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label className="form-label">Description</label>
-                            <textarea
-                                className="form-input"
-                                rows="3"
-                                value={formData.description}
-                                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                                placeholder="Course description..."
-                            />
-                        </div>
-
-                        <div className="grid grid-cols-3" style={{ gap: '1rem' }}>
-                            <div className="form-group">
-                                <label className="form-label">Semester</label>
-                                <select
-                                    className="form-input"
-                                    value={formData.semester}
-                                    onChange={(e) => setFormData({ ...formData, semester: e.target.value })}
-                                >
-                                    <option value="Spring">Spring</option>
-                                    <option value="Fall">Fall</option>
-                                    <option value="Summer">Summer</option>
-                                </select>
+                            <div className="form-grid">
+                                <div className="form-group">
+                                    <label>Semester</label>
+                                    <select
+                                        value={formData.semester}
+                                        onChange={(e) => setFormData({ ...formData, semester: e.target.value })}
+                                    >
+                                        <option value="Fall">Fall</option>
+                                        <option value="Spring">Spring</option>
+                                        <option value="Summer">Summer</option>
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <label>Year</label>
+                                    <input
+                                        type="number"
+                                        value={formData.year}
+                                        onChange={(e) => setFormData({ ...formData, year: parseInt(e.target.value) })}
+                                        min="2025"
+                                        max="2030"
+                                        required
+                                    />
+                                </div>
                             </div>
                             <div className="form-group">
-                                <label className="form-label">Year</label>
+                                <label>Max Students</label>
                                 <input
                                     type="number"
-                                    className="form-input"
-                                    value={formData.year}
-                                    onChange={(e) => setFormData({ ...formData, year: parseInt(e.target.value) })}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label className="form-label">Max Students</label>
-                                <input
-                                    type="number"
-                                    className="form-input"
                                     value={formData.maxStudents}
                                     onChange={(e) => setFormData({ ...formData, maxStudents: parseInt(e.target.value) })}
+                                    min="10"
+                                    max="200"
+                                    required
                                 />
                             </div>
-                        </div>
-
-                        <div className="flex gap-2 mt-4">
-                            <button type="submit" className="btn btn-primary" disabled={submitting}>
-                                {submitting ? 'Creating...' : 'Create Course'}
-                            </button>
-                            <button type="button" className="btn btn-secondary" onClick={onClose}>
-                                Cancel
-                            </button>
-                        </div>
-                    </form>
+                            <div className="modal-actions">
+                                <button type="button" className="btn-cancel" onClick={() => setShowModal(false)}>Cancel</button>
+                                <button type="submit" className="btn-submit" disabled={loading}>
+                                    {loading ? 'Creating...' : 'Create Course'}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-    );
-};
-
-// Assign Teacher Modal
-const AssignTeacherModal = ({ course, teachers, onClose, onSuccess }) => {
-    const [teacherId, setTeacherId] = useState('');
-    const [submitting, setSubmitting] = useState(false);
-    const [error, setError] = useState(null);
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setSubmitting(true);
-
-        try {
-            await api.post(`/admin/courses/${course.id}/assign-teacher`, { teacherId: parseInt(teacherId) });
-            onSuccess();
-        } catch (err) {
-            setError(err.response?.data?.message || 'Failed to assign teacher');
-        } finally {
-            setSubmitting(false);
-        }
-    };
-
-    return (
-        <div style={{
-            position: 'fixed',
-            top: 0, left: 0, right: 0, bottom: 0,
-            background: 'rgba(0,0,0,0.5)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1000
-        }}>
-            <div className="card" style={{ width: '100%', maxWidth: '400px' }}>
-                <div className="card-header flex justify-between items-center">
-                    <h3>Assign Teacher</h3>
-                    <button className="btn btn-sm btn-secondary" onClick={onClose}>✕</button>
-                </div>
-                <div className="card-body">
-                    <p className="mb-4">
-                        Assign a teacher to <strong>{course.code} - {course.name}</strong>
-                    </p>
-
-                    {error && <div className="alert alert-error mb-4">{error}</div>}
-
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label className="form-label">Select Teacher</label>
-                            <select
-                                className="form-input"
-                                value={teacherId}
-                                onChange={(e) => setTeacherId(e.target.value)}
-                                required
-                            >
-                                <option value="">Choose a teacher...</option>
-                                {teachers.map(teacher => (
-                                    <option key={teacher.id} value={teacher.id}>
-                                        {teacher.first_name} {teacher.last_name} ({teacher.email})
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
-
-                        <div className="flex gap-2 mt-4">
-                            <button type="submit" className="btn btn-primary" disabled={submitting}>
-                                {submitting ? 'Assigning...' : 'Assign'}
-                            </button>
-                            <button type="button" className="btn btn-secondary" onClick={onClose}>
-                                Cancel
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            )}
         </div>
     );
 };

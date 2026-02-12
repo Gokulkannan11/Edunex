@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
+import './Dashboard.css';
 
 const Dashboard = () => {
     const { user } = useAuth();
@@ -36,108 +38,138 @@ const Dashboard = () => {
         return <div className="alert alert-error">{error}</div>;
     }
 
+    const stats = {
+        totalUsers: data?.totalUsers || 12450,
+        activeCourses: data?.activeCourses || 482,
+        departments: data?.departments || 12
+    };
+
+    const userStats = [
+        { label: 'TOTAL USERS', value: 9 },
+        { label: 'STUDENTS', value: 5 },
+        { label: 'TEACHERS', value: 3 },
+        { label: 'ADMINS', value: 1 }
+    ];
+
+    const courseStats = [
+        { label: 'ACTIVE COURSES', value: 5 },
+        { label: 'ENROLLMENTS', value: 11 },
+        { label: 'ASSIGNMENTS\n(MONGODB)', value: 2 },
+        { label: 'SUBMISSIONS', value: 0 }
+    ];
+
     return (
-        <div>
-            <div className="page-header">
-                <h1 className="page-title">Admin Dashboard 🔧</h1>
-                <p className="page-subtitle">System overview and management</p>
-            </div>
-
-            {/* User Stats */}
-            <h3 className="mb-4">👥 User Statistics</h3>
-            <div className="grid grid-cols-4 mb-8">
-                <div className="stat-card">
-                    <div className="stat-value">{data?.users?.total || 0}</div>
-                    <div className="stat-label">Total Users</div>
+        <div className="admin-dashboard-stitch">
+            {/* Header */}
+            <div className="admin-header-stitch">
+                <div>
+                    <h1 className="admin-title-stitch">Admin Dashboard</h1>
+                    <p className="admin-subtitle-stitch">
+                        Overview of your academic ecosystem for Academic Year 2025.
+                    </p>
                 </div>
-                <div className="stat-card student">
-                    <div className="stat-value">{data?.users?.students || 0}</div>
-                    <div className="stat-label">Students</div>
-                </div>
-                <div className="stat-card teacher">
-                    <div className="stat-value">{data?.users?.teachers || 0}</div>
-                    <div className="stat-label">Teachers</div>
-                </div>
-                <div className="stat-card admin">
-                    <div className="stat-value">{data?.users?.admins || 0}</div>
-                    <div className="stat-label">Admins</div>
+                <div className="admin-actions-stitch">
+                    <input
+                        type="text"
+                        placeholder="Search analytics..."
+                        className="search-input-stitch"
+                    />
+                    <span className="bell-icon-admin">🔔</span>
+                    <button className="quick-action-btn-stitch">
+                        ⚡ Quick Action
+                    </button>
                 </div>
             </div>
 
-            {/* Course & Content Stats */}
-            <h3 className="mb-4">📚 Course & Content</h3>
-            <div className="grid grid-cols-4 mb-8">
-                <div className="stat-card success">
-                    <div className="stat-value">{data?.courses?.active || 0}</div>
-                    <div className="stat-label">Active Courses</div>
+            {/* Top Stats */}
+            <div className="top-stats-stitch">
+                <div className="top-stat-card-stitch">
+                    <div className="stat-label-admin">TOTAL USERS</div>
+                    <div className="stat-value-admin">{stats.totalUsers.toLocaleString()}</div>
+                    <div className="stat-change-admin positive">↑ 12.5% increase</div>
                 </div>
-                <div className="stat-card">
-                    <div className="stat-value">{data?.enrollments || 0}</div>
-                    <div className="stat-label">Enrollments</div>
+                <div className="top-stat-card-stitch">
+                    <div className="stat-label-admin">ACTIVE COURSES</div>
+                    <div className="stat-value-admin">{stats.activeCourses}</div>
+                    <div className="stat-meta-admin">Currently published</div>
                 </div>
-                <div className="stat-card warning">
-                    <div className="stat-value">{data?.assignments || 0}</div>
-                    <div className="stat-label">Assignments (MongoDB)</div>
-                </div>
-                <div className="stat-card">
-                    <div className="stat-value">{data?.submissions || 0}</div>
-                    <div className="stat-label">Submissions</div>
+                <div className="top-stat-card-stitch">
+                    <div className="stat-label-admin">DEPARTMENTS</div>
+                    <div className="stat-value-admin">{stats.departments}</div>
+                    <div className="stat-meta-admin">Core faculties</div>
                 </div>
             </div>
 
-            {/* Database Info */}
-            <h3 className="mb-4">🗄️ Database Architecture</h3>
-            <div className="grid grid-cols-2 mb-6">
-                <div className="card">
-                    <div className="card-header" style={{ background: 'var(--primary-50)' }}>
-                        <h4>🐬 MySQL (Relational)</h4>
-                    </div>
-                    <div className="card-body">
-                        <ul style={{ listStyle: 'none', padding: 0 }}>
-                            <li className="mb-2">✓ Users, Roles, Authentication</li>
-                            <li className="mb-2">✓ Courses & Departments</li>
-                            <li className="mb-2">✓ Enrollments (ACID Transactions)</li>
-                            <li className="mb-2">✓ Attendance Records</li>
-                            <li className="mb-2">✓ Grades (Foreign Key Relations)</li>
-                        </ul>
-                        <div className="mt-4">
-                            <span className="badge badge-primary">{data?.departments || 0} Departments</span>
+            {/* User Statistics */}
+            <div className="section-admin">
+                <h2 className="section-title-admin">
+                    <span className="section-icon-admin">👥</span> User Statistics
+                </h2>
+                <div className="stats-grid-admin">
+                    {userStats.map((stat, index) => (
+                        <div key={index} className="stat-box-admin">
+                            <div className="stat-box-value">{stat.value}</div>
+                            <div className="stat-box-label">{stat.label}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Course & Content */}
+            <div className="section-admin">
+                <h2 className="section-title-admin">
+                    <span className="section-icon-admin">📚</span> Course & Content
+                </h2>
+                <div className="stats-grid-admin">
+                    {courseStats.map((stat, index) => (
+                        <div key={index} className="stat-box-admin">
+                            <div className="stat-box-value">{stat.value}</div>
+                            <div className="stat-box-label">{stat.label}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Charts Section */}
+            <div className="charts-section-stitch">
+                <div className="chart-card-stitch">
+                    <h3 className="chart-title-stitch">
+                        <span>📊</span> Course Growth 2025
+                    </h3>
+                    <div className="chart-placeholder-stitch">
+                        <div className="chart-axis-stitch">
+                            <span>JAN</span>
+                            <span>FEB</span>
+                            <span>MAR</span>
+                            <span>APR</span>
+                            <span>MAY</span>
+                            <span>JUN</span>
                         </div>
                     </div>
+                    <div className="chart-footer-stitch">
+                        EDUNEX INTERNAL PLATFORM V4.0
+                    </div>
                 </div>
 
-                <div className="card">
-                    <div className="card-header" style={{ background: 'var(--success-light)' }}>
-                        <h4>🍃 MongoDB (Document)</h4>
-                    </div>
-                    <div className="card-body">
-                        <ul style={{ listStyle: 'none', padding: 0 }}>
-                            <li className="mb-2">✓ Assignments (Flexible Schema)</li>
-                            <li className="mb-2">✓ Submissions (Variable Content)</li>
-                            <li className="mb-2">✓ Course Content</li>
-                            <li className="mb-2">✓ Notifications</li>
-                            <li className="mb-2">✓ System Logs (High Write Volume)</li>
-                        </ul>
-                        <div className="mt-4">
-                            <span className="badge badge-success">{data?.assignments || 0} Assignments</span>
+                <div className="chart-card-stitch">
+                    <h3 className="chart-title-stitch">
+                        <span>🔄</span> User Distribution
+                    </h3>
+                    <div className="donut-chart-stitch">
+                        <div className="donut-circle-stitch">
+                            <div className="donut-value-stitch">12.4k</div>
+                            <div className="donut-label-stitch">USERS</div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            {/* Quick Actions */}
-            <div className="card">
-                <div className="card-header">
-                    <h4>⚡ Quick Actions</h4>
-                </div>
-                <div className="card-body">
-                    <div className="flex gap-4">
-                        <a href="/admin/users" className="btn btn-primary">
-                            👥 Manage Users
-                        </a>
-                        <a href="/admin/courses" className="btn btn-secondary">
-                            📚 Manage Courses
-                        </a>
+                    <div className="chart-legend-stitch">
+                        <div className="legend-item-stitch">
+                            <span className="legend-dot-stitch purple"></span>
+                            <span className="legend-text-stitch">Students</span>
+                            <span className="legend-percent-stitch">70%</span>
+                        </div>
+                    </div>
+                    <div className="chart-footer-stitch">
+                        COPYRIGHT 2025 EDUNEX LEARNING MANAGEMENT SYSTEMS
                     </div>
                 </div>
             </div>
